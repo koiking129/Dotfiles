@@ -1,20 +1,20 @@
 " Type ':h[elp] {subject}' to get help on a specific subject
 
 " Turn hybrid line numbers on
-set nu rnu " set number relativenumber
+set number
+set relativenumber
 
 " Turn syntax highlighting on.
 syntax on " syntax enable
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
-
 " Highlight cursor line underneath the cursor vertically.
 " set cursorcolumn
 
 " Set tab width to 4 columns.
-set tabstop=4
-
+set tabstop=4  " 制表符\t的长度
+set shiftwidth=4  " 缩进的长度
 " Use space characters instead of tabs.
 set expandtab
 
@@ -35,7 +35,7 @@ nohlsearch  " 使 source .vimrc 后不出现高亮
 set ignorecase
 
 " Highlight in column 80
-" set cc=80  " set colorcolumn=80
+" set colorcolumn=80
 
 " Set <LEADER> as <SPACE> 
 let mapleader=" "
@@ -47,9 +47,13 @@ Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
+"
 " NERD Commenter
 "
 " https://github.com/preservim/nerdcommenter/issues/375#issuecomment-486612018
 let g:NERDSpaceDelims = 1  " 在注释符号后添加一个空格
 let g:NERDRemoveExtraSpaces = 1  " 取消注释时删除一个空格
+
+" Colors
+set termguicolors
 
