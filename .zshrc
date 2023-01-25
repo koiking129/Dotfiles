@@ -70,7 +70,7 @@ ZSH_THEME="ys" # set by `omz`
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump sudo colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git z sudo colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,6 +108,10 @@ alias aria2-start="nohup aria2c --enable-rpc --rpc-listen-all > /dev/null &"
 
 # Ranger
 alias ra="ranger"
+export EDITOR=editor  # Specify text editor for ranger (also change `sensible-editor`)
 
 # Dotfiles.git
-alias config="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"
+alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
+alias cst="cit status"
+alias clg="cit log --stat"
+alias cdi="cit diff"
