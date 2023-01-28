@@ -1,4 +1,29 @@
-# Dotfiles
+# Instruction
+
+## Install dotfiles
+
+1. Clone as a bare repository
+
+```bash
+git clone --bare git@github.com:Zhniing/Dotfiles.git
+```
+
+2. Use the alias `cit` (combo of "config" and "git") to interact with the bare repository instead of the plain `git`
+
+```bash
+alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"
+```
+
+3. Restore files (overwrite existing files):
+
+```bash
+cit checkout HEAD <FILE>  # Restore the specific file
+cit reset --hard HEAD     # Restore all files
+```
+
+Resource: 
+- [Dotfiles: Best Way to Store in a Bare Git Repository](https://www.atlassian.com/git/tutorials/dotfiles)
+- [Hard reset of a single file](https://stackoverflow.com/a/7147320)
 
 ## Third-party plugins for zsh
 
