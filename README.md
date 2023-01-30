@@ -21,25 +21,33 @@ cit checkout HEAD <FILE>  # Restore the specific file
 cit reset --hard HEAD     # Restore all files
 ```
 
-Resource: 
+Resources: 
 - [Dotfiles: Best Way to Store in a Bare Git Repository](https://www.atlassian.com/git/tutorials/dotfiles)
 - [Hard reset of a single file](https://stackoverflow.com/a/7147320)
 
-## Third-party plugins for zsh
+## Zsh
 
-### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+### Install oh-my-zsh
+
+```bash
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+```
+
+### Install third-party plugins
+
+1. [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
-### [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+2. [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
-**This plugin should be activated after all the other plugins.**
+*"zsh-syntax-highlighting" should be activated after all the other plugins.*
 
 ## Neovim
 
