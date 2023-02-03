@@ -21,6 +21,13 @@ cit checkout HEAD <FILE>  # Restore the specific file
 cit reset --hard HEAD     # Restore all files
 ```
 
+Miscellaneous:
+
+```bash
+# Ignore untracked files when running `git status`
+cit config --local status.showUntrackedFiles no
+```
+
 Resources: 
 - [Dotfiles: Best Way to Store in a Bare Git Repository](https://www.atlassian.com/git/tutorials/dotfiles)
 - [Hard reset of a single file](https://stackoverflow.com/a/7147320)
@@ -49,9 +56,23 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 *"zsh-syntax-highlighting" should be activated after all the other plugins.*
 
+## Alacritty
+
+### Install fonts
+
+1. Download **Hack Nerd Font** from [the latest release](https://github.com/ryanoasis/nerd-fonts/releases/latest)
+
+2. Unzip and move the `.ttf` files to `$HOME/.local/share/fonts/`
+
+3. Check the installed fonts:
+
+```bash
+fc-list
+```
+
 ## Neovim
 
-### Install the latest Neovim
+### Install Neovim
 
 1. Download from [the latest release](https://github.com/neovim/neovim/releases/tag/stable)
 
@@ -73,14 +94,9 @@ sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 50
 :PackerSync
 ```
 
-### Install fonts
-
-1. Download the [Nerd Fonts](https://www.nerdfonts.com/)
-
-2. Unzip and move the `.ttf` files to `$HOME/.local/share/fonts/`
-
-3. Check the installed fonts:
+## Ranger
 
 ```bash
-fc-list
+sudo apt install highlight  # Syntax highlight when previewing
+sudo apt install ueberzug  # Preview images
 ```
