@@ -132,3 +132,33 @@ alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: 
 alias cst="cit status"
 alias clg="cit log --stat"
 alias cdi="cit diff"
+
+# LazyGit
+alias lg="lazygit"
+
+# Weird empty folder in $HOME
+if [ -d $HOME/模板/ ]; then
+    rmdir $HOME/模板/
+fi
+
+# Load conda on demand (conda will cause a slowdown in zsh initialization)
+function conda {
+    if [[ ! "miniconda3/bin" =~ $PATH ]]; then
+        echo "Loading conda...\n"
+        # >>> conda initialize >>>
+        # !! Contents within this block are managed by 'conda init' !!
+        __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+        if [ $? -eq 0 ]; then
+            eval "$__conda_setup"
+        else
+            if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+                . "$HOME/miniconda3/etc/profile.d/conda.sh"
+            else
+                export PATH="$HOME/miniconda3/bin:$PATH"
+            fi
+        fi
+        unset __conda_setup
+        # <<< conda initialize <<<
+    fi
+    command conda
+}
