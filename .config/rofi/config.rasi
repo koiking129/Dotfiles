@@ -1,5 +1,5 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+    modi: "drun,window,run,ssh";
     font: "mono 22";
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -145,5 +145,3 @@ configuration {
       sorting-method:    "name";
   }
 }
-
-@theme "sidebar"
