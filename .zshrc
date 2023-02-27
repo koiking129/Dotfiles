@@ -70,7 +70,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z sudo colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git fzf fzf-tab z colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -162,3 +162,14 @@ function conda {
     fi
     command conda
 }
+
+# fzf
+FZF_DEFAULT_COMMAND="ag -l --hidden -g "" --ignore .git"
+FZF_DEFAULT_OPT="--preview 'bat --color=always {}' --preview-window '~3'"
+FZF_COMPLETION_TRIGGER='\'
+source $ZSH/custom/plugins/fzf-git.sh
+# Show dotfiles in completion
+_comp_options+=(globdots)
+# Ignore . and .. in completion
+zstyle ':completion:*' special-dirs false
+

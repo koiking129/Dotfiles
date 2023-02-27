@@ -56,6 +56,18 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 *"zsh-syntax-highlighting" should be activated after all the other plugins.*
 
+3. [fzf-tab](https://github.com/Aloxaf/fzf-tab)
+
+```bash
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+```
+
+4. [fzf-git.sh](https://github.com/junegunn/fzf-git.sh)
+
+```bash
+wget https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh -O ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-git.sh
+```
+
 ## Alacritty
 
 ### Install fonts
