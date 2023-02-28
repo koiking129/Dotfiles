@@ -107,3 +107,9 @@ source $PLUGIN_HOME/fzf-git.sh
 source $PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PLUGIN_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+
+# Prompt
+grml_prompt_token_default[dollar]='$ '
+zstyle ':prompt:grml:left:setup' items newline change-root user at host path vcs rc newline dollar
+zstyle ':prompt:grml:*:items:at' token ' @ '  # Add spaces around '@'
+
