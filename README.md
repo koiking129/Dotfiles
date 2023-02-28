@@ -34,6 +34,13 @@ Resources:
 
 ## Zsh
 
+### Choose the .zshrc
+
+```bash
+ln -s .omz.zshrc .zshrc  # Use Oh-My-Zsh
+ln -s .grml.zshrc .zshrc  # Use grml-zsh-config
+```
+
 ### Install oh-my-zsh
 
 ```bash

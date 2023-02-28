@@ -1,0 +1,109 @@
+# My applications
+export PATH=$HOME/.local/bin:$PATH
+export PATH=/opt/AppImages:$PATH
+
+
+# Aria2
+alias aria2-start="nohup aria2c --enable-rpc --rpc-listen-all > /dev/null &"
+
+
+# Ranger
+alias ra="ranger"
+export EDITOR=editor  # Specify text editor for ranger (also change `sensible-editor`)
+
+# Press `Q`: change to ranger’s directory on quit
+function ranger {
+    local IFS=$'\t\n'
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
+    local ranger_cmd=(
+        command
+        ranger
+        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+    )
+
+    ${ranger_cmd[@]} "$@"
+    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+        cd -- "$(cat "$tempfile")" || return
+    fi
+    command rm -f -- "$tempfile" 2>/dev/null
+}
+
+
+# Git alias
+alias gst="git status"
+alias glg="git log --stat"
+alias gdi="git diff"
+
+
+# Dotfiles.git
+alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
+alias cst="cit status"
+alias clg="cit log --stat"
+alias cdi="cit diff"
+
+
+# LazyGit
+alias lg="lazygit"
+
+
+# Weird empty folder in $HOME
+if [ -d $HOME/模板/ ]; then
+    rmdir $HOME/模板/
+fi
+
+
+# Load conda on demand (conda will cause a slowdown in zsh initialization)
+function conda {
+    if [[ ! "miniconda3/bin" =~ $PATH ]]; then
+        # >>> conda initialize >>>
+        # !! Contents within this block are managed by 'conda init' !!
+        __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+        if [ $? -eq 0 ]; then
+            eval "$__conda_setup"
+        else
+            if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+                . "$HOME/miniconda3/etc/profile.d/conda.sh"
+            else
+                export PATH="$HOME/miniconda3/bin:$PATH"
+            fi
+        fi
+        unset __conda_setup
+        # <<< conda initialize <<<
+    fi
+    conda "$@"
+}
+
+
+PLUGIN_HOME="$HOME/.oh-my-zsh/custom/plugins"
+
+
+# fzf
+# FZF_DEFAULT_OPT="--preview 'bat --color=always {}' --preview-window '~3'"
+FZF_COMPLETION_TRIGGER='\'
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+
+source $PLUGIN_HOME/fzf-tab/fzf-tab.zsh
+
+# xsource() of grml will append some positional arguments: ".zshrc.local" "..." (i.e. filename)
+# which needs to be removed, or fzf-git.sh will breakdown.
+args="$@"
+shift "${#argv}"
+source $PLUGIN_HOME/fzf-git.sh
+# restore the arguments
+[ -n "$args" ] && set -- "$args"
+
+
+# Completion options
+
+# Show dotfiles in completion
+# _comp_options+=(globdots)
+
+# Ignore . and .. in completion
+# zstyle ':completion:*' special-dirs false
+
+
+# fish-like plugins
+source $PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PLUGIN_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
+
