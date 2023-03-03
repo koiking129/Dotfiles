@@ -3,7 +3,7 @@
 picom --experimental-backends -b
 
 # Wallpaper
-nitrogen --random /usr/share/backgrounds/kali-16x9 --set-zoom-fill
+nitrogen --random $HOME/Pictures/Wallpapers --set-zoom-fill
 
 # Status bar
 slstatus &
@@ -16,6 +16,9 @@ nm-applet &
 
 # Proxy
 /opt/clash/cfw &
+
+# Screen lock
+xautolock -time 10 -locker $HOME/.local/bin/betterls &
 
 # Start window manager
 dwm

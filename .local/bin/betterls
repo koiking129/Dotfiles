@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+betterlockscreen -u $HOME/Pictures/LockscreenWallpapers > /dev/null 2>&1 &
+betterlockscreen --off 20 -l > /dev/null 2>&1 &
+
