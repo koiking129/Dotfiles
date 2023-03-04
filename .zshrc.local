@@ -1,17 +1,13 @@
-# My applications
+# Executable files
 export PATH=$HOME/.local/bin:$PATH
 export PATH=/opt/AppImages:$PATH
 
 
-# Aria2
-alias aria2-start="nohup aria2c --enable-rpc --rpc-listen-all > /dev/null &"
-
-
 # Ranger
-alias ra="ranger"
 export EDITOR=editor  # Specify text editor for ranger (also change `sensible-editor`)
 
 # Press `Q`: change to ranger’s directory on quit
+# https://github.com/ranger/ranger/wiki/Integration-with-other-programs#allow-deciding-whether-your-shell-should-change-to-rangers-directory-on-quit
 function ranger {
     local IFS=$'\t\n'
     local tempfile="$(mktemp -t tmp.XXXXXX)"
@@ -29,27 +25,29 @@ function ranger {
 }
 
 
-# Git alias
+# Aliases
+
+# Git
 alias gst="git status"
 alias glg="git log --stat"
 alias gdi="git diff"
-
 
 # Dotfiles.git
 alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
 alias cst="cit status"
 alias clg="cit log --stat"
 alias cdi="cit diff"
+alias cdis="cit diff --staged"
 
-
-# LazyGit
 alias lg="lazygit"
+alias aria2="nohup aria2c --enable-rpc --rpc-listen-all > /dev/null &"
+alias ra="ranger"
+alias diff="diff --color"
+alias proxy="export http{s,}_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 
 
 # Weird empty folder in $HOME
-if [ -d $HOME/模板/ ]; then
-    rmdir $HOME/模板/
-fi
+[ -d $HOME/模板/ ] && rmdir $HOME/模板/
 
 
 # Load conda on demand (conda will cause a slowdown in zsh initialization)
@@ -74,42 +72,57 @@ function conda {
 }
 
 
-PLUGIN_HOME="$HOME/.oh-my-zsh/custom/plugins"
-
-
 # fzf
-# FZF_DEFAULT_OPT="--preview 'bat --color=always {}' --preview-window '~3'"
 FZF_COMPLETION_TRIGGER='\'
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-
-source $PLUGIN_HOME/fzf-tab/fzf-tab.zsh
-
-# xsource() of grml will append some positional arguments: ".zshrc.local" "..." (i.e. filename)
-# which needs to be removed, or fzf-git.sh will breakdown.
-args="$@"
-shift "${#argv}"
-source $PLUGIN_HOME/fzf-git.sh
-# restore the arguments
-[ -n "$args" ] && set -- "$args"
 
 
 # Completion options
 
 # Show dotfiles in completion
-# _comp_options+=(globdots)
+_comp_options+=(globdots)
 
 # Ignore . and .. in completion
-# zstyle ':completion:*' special-dirs false
+zstyle ':completion:*' special-dirs false
 
 
-# fish-like plugins
-source $PLUGIN_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $PLUGIN_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Plugins
+if [ -z "$ZSH" ]; then
+    # oh-my-zsh will import these plugins and scripts automatically
+    PLUGIN_HOME="$HOME/.oh-my-zsh/custom/plugins"
+    SCRIPT_HOME="$HOME/.oh-my-zsh/custom"
+
+    # fzf
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    source /usr/share/doc/fzf/examples/completion.zsh
+
+    source $PLUGIN_HOME/fzf-tab/fzf-tab.plugin.zsh
+
+    {
+        # xsource() of grml will append some positional arguments: ".zshrc.local" "..." (i.e. filename)
+        # which needs to be removed, or fzf-git.sh will breakdown.
+        args="$@" && shift "${#argv}"
+
+        # wget https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh -O ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fzf-git.zsh
+        source $SCRIPT_HOME/fzf-git.zsh
+
+        # restore the arguments
+        [ -n "$args" ] && set -- "$args" && unset args
+    }
+
+    # fish-like
+    source $PLUGIN_HOME/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+    source $PLUGIN_HOME/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+fi
 
 
 # Prompt
-grml_prompt_token_default[dollar]='$ '
-zstyle ':prompt:grml:left:setup' items newline change-root user at host path vcs rc newline dollar
-zstyle ':prompt:grml:*:items:at' token ' @ '  # Add spaces around '@'
+if [ -n "$grml_prompt_token_default" ]; then
+    grml_prompt_token_default[dollar]='$ '
+    zstyle ':prompt:grml:left:setup' items newline change-root user at host path vcs time rc newline dollar
+    zstyle ':prompt:grml:*:items:at' token ' @ '  # Add spaces around '@'
+fi
+
+
+# npm
+export PATH="$HOME/.npm-packages/bin:$PATH"
 

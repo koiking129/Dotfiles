@@ -70,7 +70,25 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf fzf-tab z colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+    # oh-my-zsh built-in
+    git
+    colored-man-pages
+    z
+    fzf
+
+    # git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+    fzf-tab
+
+    # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    zsh-autosuggestions
+
+    # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    # zsh-syntax-highlighting
+
+    # git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+    fast-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,76 +118,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=$HOME/.local/bin:$PATH
-export PATH=/opt/AppImages:$PATH
-
-# Aria2
-alias aria2-start="nohup aria2c --enable-rpc --rpc-listen-all > /dev/null &"
-
-# Ranger
-alias ra="ranger"
-export EDITOR=editor  # Specify text editor for ranger (also change `sensible-editor`)
-
-# Press `Q`: change to ranger’s directory on quit
-function ranger {
-    local IFS=$'\t\n'
-    local tempfile="$(mktemp -t tmp.XXXXXX)"
-    local ranger_cmd=(
-        command
-        ranger
-        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
-    )
-
-    ${ranger_cmd[@]} "$@"
-    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-        cd -- "$(cat "$tempfile")" || return
-    fi
-    command rm -f -- "$tempfile" 2>/dev/null
-}
-
-# Dotfiles.git
-alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
-alias cst="cit status"
-alias clg="cit log --stat"
-alias cdi="cit diff"
-
-# LazyGit
-alias lg="lazygit"
-
-# Weird empty folder in $HOME
-if [ -d $HOME/模板/ ]; then
-    rmdir $HOME/模板/
-fi
-
-# Load conda on demand (conda will cause a slowdown in zsh initialization)
-function conda {
-    if [[ ! "miniconda3/bin" =~ $PATH ]]; then
-        echo "Loading conda...\n"
-        # >>> conda initialize >>>
-        # !! Contents within this block are managed by 'conda init' !!
-        __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-        if [ $? -eq 0 ]; then
-            eval "$__conda_setup"
-        else
-            if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-                . "$HOME/miniconda3/etc/profile.d/conda.sh"
-            else
-                export PATH="$HOME/miniconda3/bin:$PATH"
-            fi
-        fi
-        unset __conda_setup
-        # <<< conda initialize <<<
-    fi
-    command conda
-}
-
-# fzf
-FZF_DEFAULT_COMMAND="ag -l --hidden -g "" --ignore .git"
-FZF_DEFAULT_OPT="--preview 'bat --color=always {}' --preview-window '~3'"
-FZF_COMPLETION_TRIGGER='\'
-source $ZSH/custom/plugins/fzf-git.sh
-# Show dotfiles in completion
-_comp_options+=(globdots)
-# Ignore . and .. in completion
-zstyle ':completion:*' special-dirs false
+source $HOME/.zshrc.local
 
