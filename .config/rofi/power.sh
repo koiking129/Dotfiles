@@ -23,7 +23,7 @@ cmd[Quit]="pkill dwm"
 
 "$comfirmed" && exec ${cmd["$selection"]}
 
-if [ -z "$@" ]; then
+if [[ -z "$@" || ! "${OPTIONS[@]}" =~ "$selection" ]]; then
     for opt in "${OPTIONS[@]}"; do echo "${opt}"; done
 else
     echo "OK $selection"
