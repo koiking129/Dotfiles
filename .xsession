@@ -18,7 +18,10 @@ nm-applet &
 /opt/clash/cfw &
 
 # Screen lock
-xautolock -time 10 -locker $HOME/.local/bin/betterls &
+xautolock \
+    -time 10 \
+    -locker "grep RUNNING /proc/asound/card*/pcm*/sub*/status > /dev/null || $HOME/.local/bin/betterls" \
+    -killtime 60 -killer "systemctl suspend" &
 
 # Start window manager
 dwm
