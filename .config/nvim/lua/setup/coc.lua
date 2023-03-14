@@ -6,7 +6,9 @@ M.config = function ()
     'coc-sh',
     'coc-lua',
     'coc-pyright',
-    'coc-phpls'
+    'coc-phpls',
+    'coc-tsserver',
+    'coc-prettier'
   }
 
   -- Use Tab for trigger completion with characters ahead and navigate
@@ -21,6 +23,22 @@ M.config = function ()
   -- Make <CR> to accept selected completion item or notify coc.nvim to format
   -- <C-g>u breaks current undo, please make your own choice
   vim.keymap.set("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+
+  -- Remap <C-f> and <C-b> to scroll float windows/popups
+  ---@diagnostic disable-next-line: redefined-local
+  local opts = {silent = true, nowait = true, expr = true}
+  vim.keymap.set("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
+  vim.keymap.set("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+  vim.keymap.set("i", "<C-f>",
+                 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
+  vim.keymap.set("i", "<C-b>",
+                 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
+  vim.keymap.set("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
+  vim.keymap.set("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+
+  -- Prettier
+  vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument')
+  vim.keymap.set('v', '<leader>f', '<Plug>(coc-format-selected)')  -- Range format
 end
 
 
