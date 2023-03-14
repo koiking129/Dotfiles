@@ -23,6 +23,9 @@ xautolock \
     -locker "grep RUNNING /proc/asound/card*/pcm*/sub*/status > /dev/null || $HOME/.local/bin/betterls" \
     -killtime 60 -killer "systemctl suspend" &
 
+# Email
+birdtray &
+
 # Start window manager
 dwm
 
