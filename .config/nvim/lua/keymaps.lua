@@ -18,7 +18,6 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Run code
-
 vim.g.run_cmd = {
     bash = 'bash',
     zsh = 'bash',
@@ -28,6 +27,8 @@ vim.g.run_cmd = {
     php = 'php',
     lua = 'lua'
 }
-
 vim.keymap.set('n', '<F5>', ':exec "!" run_cmd[&ft] "%"<cr>')
+
+-- Copy
+vim.keymap.set('v', '<leader>c', '"+y')
 
