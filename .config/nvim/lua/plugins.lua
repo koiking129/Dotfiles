@@ -59,8 +59,18 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = require('setup/nvim-treesitter').config,
+    config = require('setup/nvim-treesitter').config
   }
+
+  -- Command prompt
+  use {
+    'gelguy/wilder.nvim',
+    event = 'CmdLineEnter',
+    config = require('setup/wilder').config
+  }
+
+  -- Miscellaneous
+  use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 
   if packer_bootstrap then
     require('packer').sync()
