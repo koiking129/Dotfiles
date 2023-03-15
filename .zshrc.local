@@ -40,10 +40,11 @@ alias cdi="cit diff"
 alias cdis="cit diff --staged"
 
 alias lg="lazygit"
-alias aria2="nohup aria2c --enable-rpc --rpc-listen-all > /dev/null &"
+alias aria2="(aria2c --enable-rpc --rpc-listen-all >> /tmp/aria2.log 2>&1 &)"
 alias ra="ranger"
 alias diff="diff --color"
 alias proxy="export http{s,}_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
+alias cs=". $HOME/.local/bin/conda-switch.sh"
 
 
 # Weird empty folder in $HOME
