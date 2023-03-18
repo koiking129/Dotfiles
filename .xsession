@@ -17,6 +17,9 @@ nm-applet &
 # Proxy
 /opt/clash/cfw &
 
+# Disable DPMS and prevent screen from blanking
+xset s off -dpms
+
 # Screen lock
 xautolock \
     -time 10 \
