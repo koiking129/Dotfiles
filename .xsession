@@ -30,6 +30,9 @@ xautolock \
 # Email
 birdtray &
 
+# Hotkey daemon
+sxhkd &
+
 # Start window manager
 dwm
 

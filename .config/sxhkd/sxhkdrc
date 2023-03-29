@@ -1,0 +1,18 @@
+# Volume
+XF86AudioRaiseVolume
+    amixer set Master 5%+ unmute
+XF86AudioLowerVolume
+    amixer set Master 5%- unmute
+XF86AudioMute
+    amixer set Master toggle
+
+# Brightness
+XF86MonBrightnessUp
+    light -A 5
+XF86MonBrightnessDown
+    light -U 5
+
+# Screenshot
+Print
+    scrot ~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_'$wx$h'.png
+
