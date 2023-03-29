@@ -1,5 +1,17 @@
 #!/bin/sh
 
+# DPI
+if xrandr --listactivemonitors | grep -Ev "(^Monitors)|(eDP$)"
+then  # Desktop
+    echo "Xft.dpi: 144" | xrdb -merge
+else  # Laptop
+    echo "Xft.dpi: 192" | xrdb -merge
+fi
+
+# Multiple displays
+autorandr -c
+
+# Compositor
 picom --experimental-backends -b
 
 # Wallpaper
