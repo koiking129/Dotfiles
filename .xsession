@@ -45,6 +45,9 @@ birdtray &
 # Hotkey daemon
 sxhkd &
 
+# Screenshot daemon
+flameshot &
+
 # Start window manager
 dwm
 

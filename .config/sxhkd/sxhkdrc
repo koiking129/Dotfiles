@@ -14,5 +14,7 @@ XF86MonBrightnessDown
 
 # Screenshot
 Print
-    scrot ~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_'$wx$h'.png
+    flameshot full -c -p ~/Pictures/Screenshots  # Fullscreen capture
+ctrl + Print
+    flameshot gui -c -p ~/Pictures/Screenshots  # Area capture with mouse
 
