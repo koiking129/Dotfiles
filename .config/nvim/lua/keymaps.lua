@@ -27,7 +27,7 @@ vim.g.run_cmd = {
     php = 'php',
     lua = 'lua'
 }
-vim.keymap.set('n', '<F5>', ':exec "!" run_cmd[&ft] "%"<cr>')
+vim.keymap.set('n', '<F5>', ':exec "w|!" run_cmd[&ft] "%"<cr>')
 
 -- Copy
 vim.keymap.set('v', '<leader>c', '"+y')
