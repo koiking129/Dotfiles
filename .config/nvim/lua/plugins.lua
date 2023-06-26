@@ -69,6 +69,12 @@ return require('packer').startup(function(use)
     config = require('setup/wilder').config
   }
 
+  -- Input Method (im)
+  use {
+    'keaising/im-select.nvim',
+    config = require('setup/im-select').config
+  }
+
   -- Miscellaneous
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 
