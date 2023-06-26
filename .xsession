@@ -12,7 +12,7 @@ fi
 autorandr -c
 
 # Compositor
-picom --experimental-backends -b
+picom -b
 
 # Wallpaper
 nitrogen --random $HOME/Pictures/Wallpapers --set-zoom-fill
