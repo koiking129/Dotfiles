@@ -18,3 +18,7 @@ Print
 ctrl + Print
     flameshot gui -c -p ~/Pictures/Screenshots  # Area capture with mouse
 
+# WeChat
+ctrl + alt + w
+    xdotool key --window $(xdotool search --limit 1 --all --pid $(pgrep WeChat.exe)) "ctrl+alt+W"  # Send this shortcut to WeChat
+
