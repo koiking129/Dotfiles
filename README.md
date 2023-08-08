@@ -117,11 +117,14 @@ sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 50
 sudo apt install fzf
 sudo apt install ranger  # File manager
 sudo apt install highlight  # Syntax highlight when previewing
-sudo apt install ueberzug  # Preview images
 sudo apt install flameshot  # Screenshot
 sudo apt install sxhkd  # Custom hotkey
 sudo apt install picom  # Compositor
 sudo apt install rofi  # Application launcher
 sudo apt install betterlockscreen  # Lockscreen
+
+# Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install jstkdng/programs/ueberzugpp  # Preview images
 ```
 

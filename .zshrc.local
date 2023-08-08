@@ -128,6 +128,15 @@ fi
 export PATH="$HOME/.npm-packages/bin:$PATH"
 
 
+# Homebrew
+export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+
+
 # Autostart X at login
 # https://wiki.archlinux.org/title/Xinit#Autostart_X_at_login
 if [ -z "${DISPLAY}" ] && [ "$(tty)" = "/dev/tty1" ]; then
