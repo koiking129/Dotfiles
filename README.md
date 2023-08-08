@@ -5,9 +5,9 @@
 1. Clone as a bare repository
 
 ```bash
-git clone --bare git@github.com:Zhniing/Dotfiles.git
+git clone --bare git@github.com:Zhniing/Dotfiles.git $HOME/Projects/Dotfiles.git
 ```
-
+$HOME/Projects/Dotfiles.git
 2. Use the alias `cit` (combo of "config" and "git") to interact with the bare repository instead of the plain `git`
 
 ```bash
@@ -55,13 +55,11 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
-2. [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+2. [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
 
 ```bash
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 ```
-
-*"zsh-syntax-highlighting" should be activated after all the other plugins.*
 
 3. [fzf-tab](https://github.com/Aloxaf/fzf-tab)
 
@@ -113,9 +111,17 @@ sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 50
 :PackerSync
 ```
 
-## Ranger
+## Utilities
 
 ```bash
+sudo apt install fzf
+sudo apt install ranger  # File manager
 sudo apt install highlight  # Syntax highlight when previewing
 sudo apt install ueberzug  # Preview images
+sudo apt install flameshot  # Screenshot
+sudo apt install sxhkd  # Custom hotkey
+sudo apt install picom  # Compositor
+sudo apt install rofi  # Application launcher
+sudo apt install betterlockscreen  # Lockscreen
 ```
+
