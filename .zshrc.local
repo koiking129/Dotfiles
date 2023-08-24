@@ -45,6 +45,7 @@ alias ra="ranger"
 alias diff="diff --color"
 alias proxy="export http{s,}_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 alias cs=". $HOME/.local/bin/conda-switch.sh"
+alias ls="lsd"
 
 
 # Weird empty folder in $HOME

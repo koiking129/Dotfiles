@@ -122,6 +122,7 @@ sudo apt install sxhkd  # Custom hotkey
 sudo apt install picom  # Compositor
 sudo apt install rofi  # Application launcher
 sudo apt install betterlockscreen  # Lockscreen
+sudo apt isntall lsd  # Enhanced ls
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
