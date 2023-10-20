@@ -7,25 +7,24 @@
 ```bash
 git clone --bare git@github.com:Zhniing/Dotfiles.git $HOME/Projects/Dotfiles.git
 ```
-$HOME/Projects/Dotfiles.git
+
 2. Use the alias `cit` (combo of "config" and "git") to interact with the bare repository instead of the plain `git`
 
 ```bash
 alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"
 ```
 
-3. Restore files (overwrite existing files):
+3. Ignore untracked files when running `git status`
+
+```bash
+cit config --local status.showUntrackedFiles no
+```
+
+4. Restore files (overwrite existing files):
 
 ```bash
 cit checkout HEAD <FILE>  # Restore the specific file
 cit reset --hard HEAD     # Restore all files
-```
-
-Miscellaneous:
-
-```bash
-# Ignore untracked files when running `git status`
-cit config --local status.showUntrackedFiles no
 ```
 
 Resources: 
@@ -91,18 +90,26 @@ fc-list
 
 ### Install Neovim
 
-1. Download from [the latest release](https://github.com/neovim/neovim/releases/tag/stable)
+1. Install from source
 
 ```bash
-sudo apt install ./nvim-linux64.deb
+git clone https://github.com/neovim/neovim.git
+cd neovim
+git checkout stable
+sudo apt-get install ninja-build gettext cmake unzip curl
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
 ```
+
+Refer to [Building Neovim](https://github.com/neovim/neovim/wiki/Building-Neovim)
 
 2. Install the symbolic links
 
 ```bash
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 50
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 50
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 50
+nvim_bin="/usr/local/bin/nvim"
+sudo update-alternatives --install /usr/bin/vi vi "$nvim_bin" 50
+sudo update-alternatives --install /usr/bin/vim vim "$nvim_bin" 50
+sudo update-alternatives --install /usr/bin/editor editor "$nvim_bin" 50
 ```
 
 ### Install plugins
