@@ -70,10 +70,13 @@ return require('packer').startup(function(use)
   }
 
   -- Input Method (im)
-  use {
-    'keaising/im-select.nvim',
-    config = require('setup/im-select').config
-  }
+  if vim.loop.os_uname().sysname == "Linux" and not os.getenv("WSL_DISTRO_NAME") then
+    -- Activated only in Linux
+    use {
+      'keaising/im-select.nvim',
+      config = require('setup/im-select').config
+    }
+  end
 
   -- Miscellaneous
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
