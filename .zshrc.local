@@ -43,13 +43,25 @@ alias lg="lazygit"
 alias aria2="(aria2c --enable-rpc --rpc-listen-all >> /tmp/aria2.log 2>&1 &)"
 alias ra="ranger"
 alias diff="diff --color"
-alias proxy="export http{s,}_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 alias cs=". $HOME/.local/bin/conda-switch.sh"
 alias ls="lsd"
 
+function proxy {
+    if [ "$1" = "off" ]; then
+        unset http{s,}_proxy all_proxy no_proxy
+    else
+        IP=${1:-"localhost"}
+        PORT=${2:-"11123"}
+        export http{s,}_proxy=http://"$IP":"$PORT"
+        export all_proxy=socks5://"$IP":"$PORT"
+        export no_proxy="localhost,$IP"
+        env | grep "_proxy"
+    fi
+}
+
 
 # Weird empty folder in $HOME
-[ -d $HOME/模板/ ] && rmdir $HOME/模板/
+[ -d "$HOME/模板/" ] && rmdir "$HOME/模板/"
 
 
 # Load conda on demand (conda will cause a slowdown in zsh initialization)
