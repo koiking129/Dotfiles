@@ -27,7 +27,7 @@ fcitx -d
 nm-applet &
 
 # Proxy
-/opt/clash/cfw &
+/opt/Clash/cfw &
 
 # Prevent screen from blanking after inactivity
 xset s off
@@ -35,7 +35,7 @@ xset dpms 0 0 0
 
 # Screen lock
 xautolock \
-    -time 10 \
+    -time 20 \
     -locker "grep RUNNING /proc/asound/card*/pcm*/sub*/status > /dev/null || $HOME/.local/bin/betterls" \
     -killtime 60 -killer "systemctl suspend" &
 
@@ -47,6 +47,12 @@ sxhkd &
 
 # Screenshot daemon
 flameshot &
+
+# Bukuserver
+BUKUSERVER_PER_PAGE=100 $HOME/.local/bin/bukuserver run &
+
+# Syncthing
+syncthing --no-browser &
 
 # Start window manager
 dwm
