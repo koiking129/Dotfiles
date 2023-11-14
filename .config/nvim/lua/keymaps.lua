@@ -32,3 +32,6 @@ vim.keymap.set('n', '<F5>', ':exec "w|!" run_cmd[&ft] "%"<cr>')
 -- Copy
 vim.keymap.set('v', '<leader>c', '"+y')
 
+-- Line wrap
+vim.keymap.set('n', '<a-z>', ':set wrap!<cr>')
+
