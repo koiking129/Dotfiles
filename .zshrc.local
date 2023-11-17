@@ -26,25 +26,21 @@ function ranger {
 
 
 # Aliases
-
-# Git
-alias gst="git status"
-alias glg="git log --stat"
-alias gdi="git diff"
-
-# Dotfiles.git
-alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
-alias cst="cit status"
-alias clg="cit log --stat"
-alias cdi="cit diff"
-alias cdis="cit diff --staged"
-
 alias lg="lazygit"
 alias aria2="(aria2c --enable-rpc --rpc-listen-all >> /tmp/aria2.log 2>&1 &)"
 alias ra="ranger"
 alias diff="diff --color"
 alias cs=". $HOME/.local/bin/conda-switch.sh"
 alias ls="lsd"
+
+alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
+function git {
+    if [ "$PWD" = "$HOME" ]; then
+        command git --git-dir="$HOME/Projects/Dotfiles.git" --work-tree="$HOME" "$@"
+    else
+        command git "$@"
+    fi
+}
 
 function proxy {
     if [ "$1" = "off" ]; then
