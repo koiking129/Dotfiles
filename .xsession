@@ -52,7 +52,7 @@ flameshot &
 BUKUSERVER_PER_PAGE=100 $HOME/.local/bin/bukuserver run &
 
 # Syncthing
-syncthing --no-browser &
+$HOME/.local/bin/syncthing --no-browser &
 
 # Start window manager
 dwm

@@ -124,6 +124,7 @@ sudo update-alternatives --install /usr/bin/editor editor "$nvim_bin" 50
 
 ```bash
 sudo apt install fzf
+sudo apt install silversearcher-ag
 sudo apt install ranger  # File manager
 sudo apt install highlight  # Syntax highlight when previewing
 sudo apt install flameshot  # Screenshot
