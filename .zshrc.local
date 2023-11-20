@@ -32,6 +32,10 @@ alias ra="ranger"
 alias diff="diff --color"
 alias cs=". $HOME/.local/bin/conda-switch.sh"
 alias ls="lsd"
+alias lt="ls --tree"
+alias llt="ll -t"
+alias lls="ll -S"
+alias cat="batcat -P"
 
 alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
 function git {

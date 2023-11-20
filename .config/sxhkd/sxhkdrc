@@ -16,7 +16,7 @@ XF86MonBrightnessDown
 Print
     flameshot full -c -p ~/Pictures/Screenshots  # Fullscreen capture
 ctrl + Print
-    flameshot gui -c -p ~/Pictures/Screenshots  # Area capture with mouse
+    flameshot gui  # Area capture with mouse
 
 # WeChat
 ctrl + alt + w
