@@ -35,3 +35,11 @@ hyper + k
     xdotool keyup k key Up
 hyper + l
     xdotool keyup l key Right
+
+# Window switching
+super + w
+    wmctrl -x -a firefox
+super + c
+    wmctrl -x -a code
+super + l
+    wmctrl -x -a logseq
