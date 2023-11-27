@@ -43,3 +43,6 @@ super + c
     wmctrl -x -a code
 super + l
     wmctrl -x -a logseq
+super + {button8,button9}
+    dwmc focusstack {+,-}1
+
