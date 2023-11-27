@@ -50,7 +50,7 @@ function proxy {
     if [ "$1" = "off" ]; then
         unset http{s,}_proxy all_proxy no_proxy
     else
-        IP=${1:-"localhost"}
+        IP=${1:-"127.0.0.1"}
         PORT=${2:-"11123"}
         export http{s,}_proxy=http://"$IP":"$PORT"
         export all_proxy=socks5://"$IP":"$PORT"

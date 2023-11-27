@@ -70,13 +70,10 @@ return require('packer').startup(function(use)
   }
 
   -- Input Method (im)
-  if vim.loop.os_uname().sysname == "Linux" and not os.getenv("WSL_DISTRO_NAME") then
-    -- Activated only in Linux
-    use {
-      'keaising/im-select.nvim',
-      config = require('setup/im-select').config
-    }
-  end
+  use {
+    'keaising/im-select.nvim',
+    config = require('setup/im-select').config
+  }
 
   -- Git signs
   use {

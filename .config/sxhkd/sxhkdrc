@@ -1,22 +1,18 @@
 # Volume
-XF86AudioRaiseVolume
-    amixer set Master 5%+ unmute
-XF86AudioLowerVolume
-    amixer set Master 5%- unmute
+XF86Audio{Raise,Lower}Volume
+    amixer set Master 5%{+,-} unmute
 XF86AudioMute
     amixer set Master toggle
 
 # Brightness
-XF86MonBrightnessUp
-    light -A 5
-XF86MonBrightnessDown
-    light -U 5
+XF86MonBrightness{Up,Down}
+    light -{A,U} 5
 
 # Screenshot
 Print
-    flameshot full -c -p ~/Pictures/Screenshots  # Fullscreen capture
-ctrl + Print
     flameshot gui  # Area capture with mouse
+ctrl + Print
+    flameshot full -c -p ~/Pictures/Screenshots  # Fullscreen capture
 
 # WeChat
 ctrl + alt + w
@@ -25,6 +21,10 @@ ctrl + alt + w
 # Rofi run
 super + r
     rofi -show run
+
+# Power menu
+super + shift + Escape
+    rofi -modi Power:~/.config/rofi/power.sh -show
 
 # CapsLock + hjkl
 hyper + h

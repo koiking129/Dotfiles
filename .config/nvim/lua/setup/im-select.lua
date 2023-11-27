@@ -27,7 +27,7 @@ M.config = function ()
     set_previous_events = { "InsertEnter" },
 
     -- Show notification about how to install executable binary when binary is missing
-    keep_quiet_on_no_binary = false
+    keep_quiet_on_no_binary = true
   })
 end
 
