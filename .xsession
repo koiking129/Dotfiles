@@ -7,6 +7,8 @@ then  # Desktop
 else  # Laptop
     echo "Xft.dpi: 192" | xrdb -merge
 fi
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
 
 # Multiple displays
 autorandr -c
