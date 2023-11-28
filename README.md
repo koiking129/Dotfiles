@@ -189,6 +189,10 @@ sudo apt install bat
 
 [dandavison/delta: A syntax-highlighting pager for git, diff, and grep output](https://github.com/dandavison/delta/releases/latest)
 
+```bash
+git config --global --add include.path "~/.config/delta.gitconfig"
+```
+
 ### 6. zoxide
 
 [ajeetdsouza/zoxide: A smarter cd command. Supports all major shells.](https://github.com/ajeetdsouza/zoxide)
