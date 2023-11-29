@@ -46,7 +46,8 @@ return require('packer').startup(function(use)
   }
 
   -- Color
-  use 'folke/tokyonight.nvim'
+  -- use 'folke/tokyonight.nvim'
+  use 'dracula/vim'
 
   -- Completion
   use {

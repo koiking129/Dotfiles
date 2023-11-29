@@ -23,7 +23,7 @@ vim.o.wrap = true
 
 -- Color
 vim.o.termguicolors = true
-vim.cmd('colorscheme tokyonight-moon')
+vim.cmd('colorscheme dracula')
 
 -- Intro message
 vim.o.shortmess='I'

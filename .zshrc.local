@@ -35,7 +35,16 @@ alias ls="lsd"
 alias lt="ls --tree"
 alias llt="ll -t"
 alias lls="ll -S"
-alias cat="batcat -P"
+
+function cat {
+    if type batcat > /dev/null; then
+        batcat -P "$@"
+    elif type bat > /dev/null; then
+        bat -P "$@"
+    else
+        command cat "$@"
+    fi
+}
 
 alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
 function git {

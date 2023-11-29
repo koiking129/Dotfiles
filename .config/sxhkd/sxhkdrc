@@ -31,7 +31,7 @@ super + w
     wmctrl -x -a firefox
 super + c
     wmctrl -x -a code
-super + l
+super + e
     wmctrl -x -a logseq
 super + {button8,button9}
     dwmc focusstack {+,-}1
