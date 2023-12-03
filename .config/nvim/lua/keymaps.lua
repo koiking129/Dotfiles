@@ -10,8 +10,8 @@ vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 
 -- Buffer switching
-vim.keymap.set('n', '<a-j>', ':bp<cr>')
-vim.keymap.set('n', '<a-k>', ':bn<cr>')
+vim.keymap.set('n', '<a-s-h>', ':bp<cr>')
+vim.keymap.set('n', '<a-s-l>', ':bn<cr>')
 
 -- Line moving
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

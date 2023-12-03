@@ -1,6 +1,5 @@
 # Executable files
 export PATH=$HOME/.local/bin:$PATH
-export PATH=/opt/AppImages:$PATH
 
 
 # Ranger
@@ -32,15 +31,16 @@ alias ra="ranger"
 alias diff="diff --color"
 alias cs=". $HOME/.local/bin/conda-switch.sh"
 alias ls="lsd"
-alias lt="ls --tree"
-alias llt="ll -t"
-alias lls="ll -S"
+alias la="lsd -a"
+alias lt="lsd --tree"
+alias llt="lsd -t"
+alias lls="lsd -S"
 
 function cat {
     if type batcat > /dev/null; then
-        batcat -P "$@"
+        batcat "$@"
     elif type bat > /dev/null; then
-        bat -P "$@"
+        bat "$@"
     else
         command cat "$@"
     fi
