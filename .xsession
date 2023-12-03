@@ -44,6 +44,9 @@ birdtray &
 # Hotkey daemon
 sxhkd &
 
+# Keyd app daemon
+keyd-application-mapper -d
+
 # Screenshot daemon
 flameshot &
 
