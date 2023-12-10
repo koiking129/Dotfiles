@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
   }
 
   -- Color
-  -- use 'folke/tokyonight.nvim'
+  use 'folke/tokyonight.nvim'
   use 'dracula/vim'
   use 'HiPhish/rainbow-delimiters.nvim'
 
@@ -73,7 +73,8 @@ return require('packer').startup(function(use)
 
   -- Input Method (im)
   use {
-    'keaising/im-select.nvim',
+    'Zhniing/im-select.nvim',
+    branch = 'feat',
     config = require('setup/im-select').config
   }
 
