@@ -164,5 +164,8 @@ eval "$(zoxide init zsh)"
 
 
 # Pokemon
-type pokemon-colorscripts > /dev/null && pokemon-colorscripts -r --no-title || true
+# type pokemon-colorscripts > /dev/null && pokemon-colorscripts -r --no-title || true
+
+# Taskwarrior
+type task > /dev/null && task next
 

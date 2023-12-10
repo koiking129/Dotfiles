@@ -3,6 +3,14 @@ XF86Audio{Raise,Lower}Volume
     amixer set Master 5%{+,-} unmute
 XF86AudioMute
     amixer set Master toggle
+ctrl + alt + {equal,minus}
+    amixer set Master 5%{+,-} unmute
+ctrl + alt + 0
+    amixer set Master toggle
+
+# Multimedia controls
+ctrl + alt + {p,bracketleft,bracketright}
+    mpc {toggle,prev,next}
 
 # Brightness
 XF86MonBrightness{Up,Down}
