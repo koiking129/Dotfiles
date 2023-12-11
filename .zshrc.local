@@ -48,6 +48,8 @@ function git {
     fi
 }
 export PATH="$HOME/Projects/git-fuzzy/bin:$PATH"
+export GF_VERTICAL_THRESHOLD="10"
+export GF_VERTICAL_PREVIEW_PERCENT_CALCULATION="70"
 alias gf="git fuzzy"
 
 function proxy {
