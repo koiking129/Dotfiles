@@ -36,15 +36,8 @@ alias lt="lsd --tree"
 alias llt="lsd -t"
 alias lls="lsd -S"
 
-function cat {
-    if type batcat > /dev/null; then
-        batcat "$@"
-    elif type bat > /dev/null; then
-        bat "$@"
-    else
-        command cat "$@"
-    fi
-}
+type batcat > /dev/null && alias bat="batcat"
+type bat > /dev/null && alias cat="bat"
 
 alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
 function git {
@@ -54,6 +47,8 @@ function git {
         command git "$@"
     fi
 }
+export PATH="$HOME/Projects/git-fuzzy/bin:$PATH"
+alias gf="git fuzzy"
 
 function proxy {
     if [ "$1" = "off" ]; then
