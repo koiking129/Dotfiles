@@ -10,7 +10,7 @@ M.config = function ()
   require("nvim-tree").setup()
 
   -- keymaps
-  vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>')
+  vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<cr>')
 end
 
 
