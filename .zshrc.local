@@ -25,7 +25,6 @@ function ranger {
 
 
 # Aliases
-alias lg="lazygit"
 alias aria2="(aria2c --enable-rpc --rpc-listen-all >> /tmp/aria2.log 2>&1 &)"
 alias ra="ranger"
 alias diff="diff --color"
@@ -40,13 +39,17 @@ type batcat > /dev/null && alias bat="batcat"
 type bat > /dev/null && alias cat="bat"
 
 alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
-function git {
+function git {  # To avoid duplicate alias definitions
     if [ "$PWD" = "$HOME" ]; then
         command git --git-dir="$HOME/Projects/Dotfiles.git" --work-tree="$HOME" "$@"
     else
         command git "$@"
     fi
 }
+
+alias lg="lazygit"
+alias lgd="lazygit --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"
+
 export PATH="$HOME/Projects/git-fuzzy/bin:$PATH"
 export GF_VERTICAL_THRESHOLD="10"
 export GF_VERTICAL_PREVIEW_PERCENT_CALCULATION="70"
