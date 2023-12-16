@@ -1,102 +1,101 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-
+require('lazy').setup({
   -- File explorer
-  use {
+  {
     'nvim-tree/nvim-tree.lua',
-    requires = 'nvim-tree/nvim-web-devicons',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = require('setup/nvim-tree').config
-  }
+  },
 
   -- Fuzzy search
-  -- use fzf installed by apt in debian (avoid duplicate installation)
-  vim.opt.rtp:append('/usr/share/doc/fzf/examples')
-  use {'junegunn/fzf.vim', config=require('setup/fzf').config}
+  'junegunn/fzf',
+  {
+    'junegunn/fzf.vim',
+    config = require('setup/fzf').config
+  },
 
   -- Bufferline
-  use {
-    'akinsho/bufferline.nvim', tag = "v3.*",
-    requires = 'nvim-tree/nvim-web-devicons',
+  {
+    'akinsho/bufferline.nvim', version = "v3.*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = require("setup/bufferline").config
-  }
+  },
 
   -- Statusline
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'nvim/nvim-web-devicons', opt = true },
+    dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
     config = require('setup/lualine').config
-  }
+  },
 
   -- Comment
-  use {
+  {
     'numToStr/Comment.nvim',
-    config = "require('Comment').setup()"
-  }
+    config = function() require('Comment').setup() end
+  },
 
   -- Color
-  use 'folke/tokyonight.nvim'
-  use 'dracula/vim'
-  use 'HiPhish/rainbow-delimiters.nvim'
+  'folke/tokyonight.nvim',
+  'dracula/vim',
+  'HiPhish/rainbow-delimiters.nvim',
 
   -- Completion
-  use {
+  {
     'neoclide/coc.nvim',
     branch = 'release',
     config = require('setup/coc').config
-  }
+  },
 
   -- Syntax highlighting
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    build = ':TSUpdate',
     config = require('setup/nvim-treesitter').config
-  }
+  },
 
   -- Command prompt
-  use {
+  {
     'gelguy/wilder.nvim',
     event = 'CmdLineEnter',
     config = require('setup/wilder').config
-  }
+  },
 
   -- Input Method (im)
-  use {
+  {
     'Zhniing/im-select.nvim',
     branch = 'feat',
     config = require('setup/im-select').config
-  }
+  },
 
   -- Git signs
-  use {
+  {
     'lewis6991/gitsigns.nvim',
     config = require('setup/gitsigns').config
-  }
+  },
 
   -- Markdown preview
-  use {
+  {
     "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
-  }
+    build = "cd app && npm install",
+    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },  -- Lazy-load on filetype
+  },
 
   -- Miscellaneous
-  use { "dstein64/vim-startuptime", cmd = "StartupTime" }
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
-
+  {
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime"
+  },
+})
