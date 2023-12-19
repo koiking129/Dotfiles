@@ -97,6 +97,13 @@ require('lazy').setup({
     ft = { "markdown" },  -- Lazy-load on filetype
   },
 
+  -- Competitive programming
+  {
+    'xeluxee/competitest.nvim',
+    dependencies = 'MunifTanjim/nui.nvim',
+    config = require('setup/competitest').config,
+  },
+
   -- Miscellaneous
   {
     "dstein64/vim-startuptime",
