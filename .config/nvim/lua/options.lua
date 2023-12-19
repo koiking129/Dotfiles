@@ -27,3 +27,6 @@ vim.o.termguicolors = true
 -- Intro message
 vim.o.shortmess = 'I'
 
+-- Statusline
+vim.o.laststatus = 3  -- global statusline
+

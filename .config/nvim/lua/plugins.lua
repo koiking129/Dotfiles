@@ -104,6 +104,17 @@ require('lazy').setup({
     config = require('setup/competitest').config,
   },
 
+  -- Debug
+  {
+    "mfussenegger/nvim-dap",
+    config = require("setup/nvim-dap").config,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = require("setup/nvim-dap-ui").config,
+  },
+
   -- Miscellaneous
   {
     "dstein64/vim-startuptime",
