@@ -40,7 +40,7 @@ super + w
 super + c
     wmctrl -x -a code
 super + e
-    wmctrl -x -a logseq
+    wmctrl -x -a emacs
 super + {button8,button9}
     dwmc focusstack {+,-}1
 
