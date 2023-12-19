@@ -5,4 +5,8 @@
     "/usr/local/share/nvim/runtime/lua/vim/lsp": true
   },
   "Lua.diagnostics.globals": ["vim"],
+
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.messageTarget": "echo",
 }
