@@ -115,6 +115,12 @@ require('lazy').setup({
     config = require("setup/nvim-dap-ui").config,
   },
 
+  -- Float terminal
+  {
+    "voldikss/vim-floaterm",
+    config = require("setup/vim-floaterm").config,
+  },
+
   -- Miscellaneous
   {
     "dstein64/vim-startuptime",
