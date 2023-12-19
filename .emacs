@@ -2,7 +2,13 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(set-frame-font "JetBrains Mono 16")
+
+;; Font family
+(set-face-attribute
+ 'default nil
+ :font "JetBrains Mono-16")
+(dolist (charset '(kana han cjk-misc bopomofo))
+       (set-fontset-font t charset "思源黑体"))
 
 
 ;; ==================== Packages ====================
