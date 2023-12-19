@@ -48,7 +48,11 @@ require('lazy').setup({
 
   -- Color
   'folke/tokyonight.nvim',
-  'dracula/vim',
+  {
+    'dracula/vim',
+    name="dracula",
+    config = function() vim.cmd("colorscheme dracula") end
+  },
   'HiPhish/rainbow-delimiters.nvim',
 
   -- Completion

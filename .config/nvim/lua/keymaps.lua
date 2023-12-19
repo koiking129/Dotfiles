@@ -1,21 +1,21 @@
 vim.g.mapleader = ' '
 
 -- Remove highlights
-vim.keymap.set('n', '<leader>nh', ':noh<cr>')
+vim.keymap.set('n', '<leader>nh', ':noh <CR>')
 
 -- Windows navigation
-vim.keymap.set('n', '<leader>h', '<c-w>h')
-vim.keymap.set('n', '<leader>j', '<c-w>j')
-vim.keymap.set('n', '<leader>k', '<c-w>k')
-vim.keymap.set('n', '<leader>l', '<c-w>l')
+vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-j>', '<c-w>j')
+vim.keymap.set('n', '<c-k>', '<c-w>k')
+vim.keymap.set('n', '<c-l>', '<c-w>l')
 
 -- Buffer switching
-vim.keymap.set('n', '<c-h>', ':bp<cr>')
-vim.keymap.set('n', '<c-l>', ':bn<cr>')
+vim.keymap.set('n', '<a-[>', ':bp <CR>')
+vim.keymap.set('n', '<a-]>', ':bn <CR>')
 
 -- Line moving
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1 <CR> gv=gv")
+vim.keymap.set("v", "K", ":m '<-2 <CR> gv=gv")
 
 -- Run code
 vim.g.run_cmd = {
@@ -27,11 +27,11 @@ vim.g.run_cmd = {
   php = 'php',
   lua = 'lua'
 }
-vim.keymap.set('n', '<F5>', ':exec "w|!" run_cmd[&ft] "%"<cr>')
+vim.keymap.set('n', '<F5>', ':exec "w|!" run_cmd[&ft] "%" <CR>')
 
 -- Copy
 vim.keymap.set('v', '<leader>c', '"+y')
 
 -- Line wrap
-vim.keymap.set('n', '<a-z>', ':set wrap!<cr>')
+vim.keymap.set('n', '<a-z>', ':set wrap! <CR>')
 

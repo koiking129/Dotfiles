@@ -37,10 +37,10 @@ super + shift + Escape
 # Window switching
 super + w
     wmctrl -x -a firefox
-super + c
-    wmctrl -x -a code
 super + e
     wmctrl -x -a emacs
+super + s
+    wmctrl -x -a st-256color
 super + {button8,button9}
     dwmc focusstack {+,-}1
 
