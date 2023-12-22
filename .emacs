@@ -58,6 +58,17 @@
 (use-package company
   :hook (after-init . global-company-mode))
 
+;; Editing
+(use-package crux
+  :bind (("C-S-k" . crux-smart-kill-line)  ;; Delete current line
+	 ("C-a" . crux-move-beginning-of-line)  ;; Move to the first non-whitespace character
+	 ("C-S-d" . crux-duplicate-current-line-or-region)
+	 ("C-x ," . crux-find-user-init-file)))  ;; Open the init file
+(use-package hungry-delete  ;; Delete up to non-whitespace character
+  :hook (after-init . global-hungry-delete-mode))  ;; Enable hungry-deltele as default
+  ;; :bind (("C-c DEL" . hungry-delete-backward)  ;; Delete preceding
+  ;; 	 ("C-c d"   . hungry-delete-forward))) ;; Delete following
+
 
 
 ;; ==================== Org-mode ====================
