@@ -54,6 +54,10 @@
 (use-package which-key
   :hook (after-init . which-key-mode))
 
+;; Completion
+(use-package company
+  :hook (after-init . global-company-mode))
+
 
 
 ;; ==================== Org-mode ====================
