@@ -40,10 +40,18 @@
 (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
+;; require before use
+(require 'use-package)
+
+;; Install the package if it is not present on the system
+(setq use-package-always-ensure t)
 
 
 ;; ==================== Theme ====================
-(load-theme 'dracula t)  ;; Set the theme
+(use-package dracula-theme
+  :init (load-theme 'dracula t))  ; Set the theme
+
+
 
 
 ;; ==================== Media note ====================
