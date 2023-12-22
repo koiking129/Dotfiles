@@ -49,6 +49,9 @@
 ;; Install the package if it is not present on the system
 (setq use-package-always-ensure t)
 
+;; To allow installation of github packages
+(use-package quelpa-use-package)
+
 
 ;; ==================== Theme ====================
 (use-package dracula-theme
@@ -112,10 +115,6 @@
 
 ;; ==================== Org-mode ====================
 ;; Media note
-(use-package mpv)
-(use-package major-mode-hydra)
-(use-package quelpa-use-package)  ;; to allow installation of github packages
-(use-package pretty-hydra)
 (use-package org-media-note
   ;; :quelpa (org-media-note :fetcher github :repo "yuchen-lea/org-media-note")
   :hook (org-mode .  org-media-note-mode)
@@ -140,7 +139,9 @@
   :hook (org-mode . org-appear-mode))
 
 ;; Scale up the latex formula
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 4.3))
+(with-eval-after-load 'org  ;; Set it before org mode will result in a warning
+  (setq org-format-latex-options
+	(plist-put org-format-latex-options :scale 4.3)))
 
 ;; Preview latex automatically
 (use-package org-fragtog
