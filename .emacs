@@ -36,10 +36,6 @@
 (unless package-archive-contents
     (package-refresh-contents))
 
-;; Install use-package (a package manager)
-(unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
 ;; require before use
 (require 'use-package)
 
