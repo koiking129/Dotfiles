@@ -133,4 +133,11 @@
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
 
+;; Scale up the latex formula
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 4.3))
+
+;; Preview latex automatically
+(use-package org-fragtog
+  :hook (org-mode . org-fragtog-mode))
+
 
