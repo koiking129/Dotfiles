@@ -126,4 +126,11 @@
 ;; Dynamic Headline Numbering
 ;; (setq org-num-mode t)
 
+;; Hide emphasis markers
+(setq org-hide-emphasis-markers t)
+
+;; Expand emphasis markers automatically
+(use-package org-appear
+  :hook (org-mode . org-appear-mode))
+
 
