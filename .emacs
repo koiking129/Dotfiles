@@ -10,6 +10,11 @@
 (dolist (charset '(kana han cjk-misc bopomofo))
        (set-fontset-font t charset "思源黑体"))
 
+;; Show line number
+(global-display-line-numbers-mode t)
+
+;; Show column number in the mode line
+(column-number-mode t)
 
 ;; ==================== Packages ====================
 ;; Source
