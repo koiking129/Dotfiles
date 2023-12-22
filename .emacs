@@ -94,6 +94,10 @@
   :config (setq swiper-action-recenter t
                 swiper-include-line-number-in-search t))
 
+;; Window switching
+(use-package ace-window
+  :bind ("M-o" . 'ace-window))
+
 
 
 ;; ==================== Org-mode ====================
