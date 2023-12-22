@@ -98,6 +98,10 @@
 (use-package ace-window
   :bind ("M-o" . 'ace-window))
 
+;; Line and region moving
+(use-package drag-stuff
+  :bind (("M-n" . drag-stuff-down)
+	 ("M-p" . drag-stuff-up)))
 
 
 ;; ==================== Org-mode ====================
