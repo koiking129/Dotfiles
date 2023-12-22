@@ -49,6 +49,11 @@
   :init (load-theme 'dracula t))  ; Set the theme
 
 
+;; ==================== Enhance ====================
+;; Key hint
+(use-package which-key
+  :hook (after-init . which-key-mode))
+
 
 
 ;; ==================== Org-mode ====================
