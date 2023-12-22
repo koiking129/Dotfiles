@@ -116,4 +116,14 @@
   :bind ("s-v" . org-media-note-hydra/body)  ;; Main entrance
   :config (setq org-media-note-screenshot-image-dir "~/Documents/Notes/imgs/"))
 
+;; Replace stars with bullets for headline
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode))
+
+;; Adaptive indentation according to the headline level
+(setq org-adapt-indentation t)
+
+;; Dynamic Headline Numbering
+;; (setq org-num-mode t)
+
 
