@@ -141,3 +141,8 @@
   :hook (org-mode . org-fragtog-mode))
 
 
+;; ==================== Beancount-mode ====================
+(use-package beancount
+  ;; :quelpa (beancount :fetcher github :repo "beancount/beancount-mode")
+  :config (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode)))
+
