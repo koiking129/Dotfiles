@@ -1,3 +1,9 @@
+;; ==================== Improve startup time ====================
+;; Garbage collection: save about 0.5s
+(setq gc-cons-threshold most-positive-fixnum)
+(add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
+
+
 ;; ==================== Appearance ====================
 (menu-bar-mode -1)
 (tool-bar-mode -1)
