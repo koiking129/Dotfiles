@@ -22,6 +22,9 @@
 ;; Show column number in the mode line
 (column-number-mode t)
 
+;; Change the cursor style
+(setq-default cursor-type 'bar)
+
 
 ;; ==================== Package manager ====================
 ;; Source
