@@ -160,3 +160,12 @@
 ;; ==================== Misc. ====================
 ;; Stop generating the custom-set-variables
 (setq custom-file "/dev/null")
+
+
+;; ==================== Journal ====================
+(define-key global-map "\C-cc" 'org-capture)
+
+(setq org-capture-templates
+      '(("j" "Journal"  ;; Prompt
+	entry (file+datetree "~/Documents/Notes/Journal.org")
+        "* %^{heading} %U\n  %?")))  ;; Template
