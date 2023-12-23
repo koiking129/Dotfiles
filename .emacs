@@ -156,3 +156,7 @@
   ;; :quelpa (beancount :fetcher github :repo "beancount/beancount-mode")
   :config (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode)))
 
+
+;; ==================== Misc. ====================
+;; Stop generating the custom-set-variables
+(setq custom-file "/dev/null")
