@@ -28,5 +28,18 @@ vim.o.termguicolors = true
 vim.o.shortmess = 'I'
 
 -- Statusline
-vim.o.laststatus = 3  -- global statusline
+vim.o.laststatus = vim.g.started_by_firenvim and 0 or 3;
 
+-- Firenvim
+vim.g.firenvim_config = {
+  globalSettings = { alt = "all" },
+  localSettings = {
+    [".*"] = {
+      cmdline  = "neovim",
+      content  = "text",
+      priority = 0,
+      selector = "textarea",
+      takeover = "never"  -- Triggered manually
+    }
+  }
+}
