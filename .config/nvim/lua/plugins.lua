@@ -28,7 +28,7 @@ require('lazy').setup({
 
   -- Bufferline
   {
-    'akinsho/bufferline.nvim', version = "v3.*",
+    'akinsho/bufferline.nvim', version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = require("setup/bufferline").config
   },
@@ -36,24 +36,27 @@ require('lazy').setup({
   -- Statusline
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = require('setup/lualine').config
   },
 
   -- Comment
   {
     'numToStr/Comment.nvim',
-    config = function() require('Comment').setup() end
+    opts = {},
   },
 
   -- Color
   'folke/tokyonight.nvim',
+  'HiPhish/rainbow-delimiters.nvim',
   {
     'dracula/vim',
-    name="dracula",
-    config = function() vim.cmd("colorscheme dracula") end
+    -- Clarify the "dracula" instead of the ambiguous "vim"
+    name = "dracula",
+    config = function ()
+      vim.cmd("colorscheme dracula")
+    end
   },
-  'HiPhish/rainbow-delimiters.nvim',
 
   -- Completion
   {
@@ -92,10 +95,16 @@ require('lazy').setup({
   -- Markdown preview
   {
     "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
-    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    cmd = {
+      "MarkdownPreviewToggle",
+      "MarkdownPreview",
+      "MarkdownPreviewStop"
+    },
+    ft = "markdown",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
     config = require("setup/markdown-preview").config,
-    ft = { "markdown" },  -- Lazy-load on filetype
   },
 
   -- Competitive programming
