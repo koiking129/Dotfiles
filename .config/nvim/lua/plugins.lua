@@ -139,6 +139,18 @@ require('lazy').setup({
       root_key = "s",  -- Triggered by <leader>s
     }
   },
+
+  -- Keymap hint
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function ()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {},
+  },
+
   -- Miscellaneous
   {
     "dstein64/vim-startuptime",
