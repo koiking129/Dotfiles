@@ -164,6 +164,10 @@
 ;; Stop generating the custom-set-variables
 (setq custom-file "/dev/null")
 
+;; Remove the key bindings of suspend-frame
+(global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-x C-z"))
+
 
 ;; ==================== Journal ====================
 (define-key global-map "\C-cc" 'org-capture)
