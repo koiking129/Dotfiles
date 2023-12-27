@@ -40,7 +40,7 @@ super + w
 super + e
     wmctrl -x -a emacs
 super + s
-    wmctrl -x -a st-256color
+    wmctrl -x -a kitty
 super + {button8,button9}
     dwmc focusstack {+,-}1
 
