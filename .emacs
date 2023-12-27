@@ -176,3 +176,8 @@
       '(("j" "Journal"  ;; Prompt
 	entry (file+datetree "~/Documents/Notes/Journal.org")
         "* %^{heading} %U\n  %?")))  ;; Template
+
+
+;; ==================== Writing ====================
+(use-package writeroom-mode
+  :bind ("C-c z" . writeroom-mode))
