@@ -26,10 +26,6 @@ ctrl + Print
 ctrl + alt + w
     xdotool key --window $(xdotool search --limit 1 --all --pid $(pgrep WeChat.exe)) "ctrl+alt+W"  # Send this shortcut to WeChat
 
-# Rofi run
-super + r
-    rofi -show run
-
 # Power menu
 super + shift + Escape
     rofi -modi Power:~/.config/rofi/power.sh -show

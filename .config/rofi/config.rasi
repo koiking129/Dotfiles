@@ -1,5 +1,7 @@
 configuration {
-  modi: "drun,window,run,ssh";
+  combi-modes: "drun,run";
+  modes: "combi";
+
   show-icons: true;
 
   // HiDPI support
