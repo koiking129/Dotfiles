@@ -25,6 +25,9 @@
 ;; Change the cursor style
 (setq-default cursor-type 'bar)
 
+;; Remove the gaps on maximizing the frame
+(setq frame-resize-pixelwise t)
+
 
 ;; ==================== Package manager ====================
 ;; Source
