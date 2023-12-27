@@ -41,6 +41,6 @@ super + e
     wmctrl -x -a emacs
 super + s
     wmctrl -x -a kitty
-super + {button8,button9}
+# Mouse wheel
+super + {button5,button4}
     dwmc focusstack {+,-}1
-

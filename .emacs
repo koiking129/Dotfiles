@@ -75,7 +75,7 @@
 
 ;; Editing
 (use-package crux
-  :bind (("C-S-k" . crux-smart-kill-line)  ;; Delete current line
+  :bind (("C-k" . crux-smart-kill-line)  ;; Delete current line
 	 ("C-a" . crux-move-beginning-of-line)  ;; Move to the first non-whitespace character
 	 ("C-S-d" . crux-duplicate-current-line-or-region)
 	 ("C-x ," . crux-find-user-init-file)))  ;; Open the init file
@@ -124,7 +124,7 @@
 (use-package org-media-note
   ;; :quelpa (org-media-note :fetcher github :repo "yuchen-lea/org-media-note")
   :hook (org-mode .  org-media-note-mode)
-  :bind ("s-v" . org-media-note-hydra/body)  ;; Main entrance
+  :bind ("C-c v" . org-media-note-hydra/body)  ;; Main entrance
   :config (setq org-media-note-screenshot-image-dir "~/Documents/Notes/imgs/"))
 
 ;; Replace stars with bullets for headline
