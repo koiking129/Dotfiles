@@ -28,7 +28,11 @@ ctrl + alt + w
 
 # Power menu
 super + shift + Escape
-    rofi -modi Power:~/.config/rofi/power.sh -show
+    rofi -modes Power:~/.config/rofi/power.sh -show
+
+# Shortcuts menu
+super + shift + s
+    rofi -modes Shortcuts:~/.config/rofi/shortcuts.sh -show
 
 # Window switching
 super + w
