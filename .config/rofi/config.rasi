@@ -1,12 +1,10 @@
 configuration {
   modi: "drun,window,run,ssh";
-  font: "mono 22";
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
+  show-icons: true;
+
+  // HiDPI support
+  dpi: 192;
 }
+
+@theme "theme.rasi"
+

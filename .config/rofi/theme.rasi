@@ -1,0 +1,105 @@
+// Based on the Dracula theme
+
+* {
+  font: "JetBrains Mono 12.5";
+  foreground: #f8f8f2;
+  background-color: #282a36;
+  active-background: #6272a4;
+  urgent-background: #ff5555;
+  urgent-foreground: #282a36;
+  selected-background: @active-background;
+  selected-urgent-background: @urgent-background;
+  selected-active-background: @active-background;
+  separatorcolor: @active-background;
+  bordercolor: @active-background;
+}
+
+window {
+  background-color: @background-color;
+  border: 3px;
+  border-radius: 6px;
+  border-color: @bordercolor;
+  padding: 15px;
+}
+
+
+// ==================== Prompt line ====================
+inputbar {
+  children: [ prompt,textbox-prompt-colon,entry ];
+  margin: 0 0 15px 0;
+}
+// The text: drun, run, etc.
+prompt {
+  text-color: @foreground;
+}
+// The separator between the prompt and the entry
+textbox-prompt-colon {
+  expand: false;
+  str: ">";
+  margin: 0px 0.3em;  // The spacing on both sides
+  text-color: @foreground;
+}
+// The input text
+entry {
+  text-color: @foreground;
+}
+
+
+// ==================== Message text ====================
+// e.g. error messages
+textbox {
+  text-color: @foreground;
+}
+
+
+// ==================== Item list ====================
+listview {
+  fixed-height: false;  // Reduce the window height adaptively
+  cycle: false;  // Don't cycle around the list
+  lines: 13;  // The number of rows to show
+}
+
+element {
+  padding: 0.5ch 0;  // The spacing between items in the list
+}
+
+// "normal" represent even rows (i.e. 0, 2, 4, 6, ...)
+// "alternate" represent odd rows (i.e. 1, 3, 5, 7, ...)
+element normal.normal, element alternate.normal {
+  background-color: @background-color;
+  text-color: @foreground;
+}
+// element normal.urgent, element alternate.urgent {
+//   background-color: @urgent-background;
+//   text-color: @foreground;
+// }
+// element normal.active, element alternate.active {
+//   background-color: @active-background;
+//   text-color: @foreground;
+// }
+
+element selected.normal {
+  background-color: @selected-background;
+  text-color: @foreground;
+}
+// element selected.urgent {
+//   background-color: @selected-urgent-background;
+//   text-color: @foreground;
+// }
+// element selected.active {
+//   background-color: @selected-active-background;
+//   text-color: @foreground;
+// }
+
+element-text, element-icon {
+  background-color: inherit;  // Inherit from "element"
+  text-color: inherit;
+  padding: 0 0 0 1ch;  // The spacing between the icon and the text
+}
+element-icon {
+  size: 3ch;  // The size of icons 
+}
+element-text {
+  vertical-align: 0.5;  // Center the text vertically
+}
+
