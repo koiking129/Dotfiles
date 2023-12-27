@@ -56,6 +56,10 @@ BUKUSERVER_PER_PAGE=100 $HOME/.local/bin/bukuserver run &
 # Syncthing
 $HOME/.local/bin/syncthing --no-browser &
 
+# Enable IME support in the kitty terminal
+# the value can only be `ibus` (also work with Fcitx5)
+export GLFW_IM_MODULE=ibus
+
 # Start window manager
 dwm
 
