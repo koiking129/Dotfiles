@@ -138,6 +138,10 @@ if [ -z "$ZSH" ]; then
 fi
 
 
+# Fix the weird pasting highlight of fast-syntax-highlighting
+zle_highlight=('paste:none')
+
+
 # Prompt
 if [ -n "$grml_prompt_token_default" ]; then
     grml_prompt_token_default[dollar]='$ '
