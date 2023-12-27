@@ -181,3 +181,9 @@
 ;; ==================== Writing ====================
 (use-package writeroom-mode
   :bind ("C-c z" . writeroom-mode))
+
+
+;; ==================== Tabs ====================
+(use-package awesome-tab
+  ;; :quelpa (awesome-tab :fetcher github :repo "manateelazycat/awesome-tab")
+  :hook (after-init . awesome-tab-mode))
