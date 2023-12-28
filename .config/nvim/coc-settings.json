@@ -9,4 +9,6 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.messageTarget": "echo",
+
+  "snippets.ultisnips.pythonPrompt": false,
 }

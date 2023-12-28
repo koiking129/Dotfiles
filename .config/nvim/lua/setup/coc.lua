@@ -8,7 +8,8 @@ M.config = function ()
     'coc-pyright',
     'coc-phpls',
     'coc-tsserver',
-    'coc-prettier'
+    'coc-prettier',
+    'coc-snippets',
   }
 
   -- Use Tab for trigger completion with characters ahead and navigate
