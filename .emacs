@@ -28,6 +28,9 @@
 ;; Remove the gaps on maximizing the frame
 (setq frame-resize-pixelwise t)
 
+;; Inhibit startup screen
+(setq inhibit-startup-screen t)
+
 
 ;; ==================== Package manager ====================
 ;; Source
