@@ -171,6 +171,9 @@
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-z"))
 
+;; Default working directory
+(setq default-directory (concat (getenv "HOME") "/Documents/Notes"))
+
 
 ;; ==================== Journal ====================
 (define-key global-map "\C-cc" 'org-capture)
