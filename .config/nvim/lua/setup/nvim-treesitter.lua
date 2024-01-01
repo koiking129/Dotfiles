@@ -12,6 +12,7 @@ M.config = function ()
       'python',
       'bash',
       'vim',
+      'vimdoc',
       'html',
       'css',
       'javascript',
@@ -30,6 +31,7 @@ M.config = function ()
     }
   })
 
+  -- Zsh support
   -- https://github.com/nvim-treesitter/nvim-treesitter/issues/655#issuecomment-1021160477
   local ft_to_lang = require('nvim-treesitter.parsers').ft_to_lang
   require('nvim-treesitter.parsers').ft_to_lang = function(ft)
