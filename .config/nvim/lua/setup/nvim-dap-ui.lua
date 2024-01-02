@@ -2,7 +2,27 @@ local M = {}
 
 
 M.config = function ()
-  require("dapui").setup()
+  require("dapui").setup({
+    -- Layouts
+    layouts = {
+      {
+        elements = {
+          { id = "scopes", size = 0.8 },
+          { id = "watches", size = 0.2 },
+        },
+        size = 30, -- columns
+        position = "left",
+      },
+      {
+        elements = {
+          "repl",
+          "console",
+        },
+        size = 0.25, -- percentage of total lines
+        position = "bottom",
+      },
+    },
+  })
 
   local dap, dapui = require("dap"), require("dapui")
   dap.listeners.after.event_initialized["dapui_config"] = function()
