@@ -25,9 +25,18 @@ M.config = function ()
   })
 
   local dap, dapui = require("dap"), require("dapui")
+
+  -- Debugger starts
   dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
   end
+
+  -- :DapTerminate
+  dap.listeners.before.disconnect["dapui_config"] = function()
+    dapui.close()
+  end
+
+  -- Execution ends normally
   dap.listeners.before.event_terminated["dapui_config"] = function()
     dapui.close()
   end
