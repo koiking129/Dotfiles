@@ -217,3 +217,14 @@ sudo apt install duf
 ### 9. dust
 
 [bootandy/dust: A more intuitive version of du in rust](https://github.com/bootandy/dust/releases/latest)
+
+## Git
+
+Install [tig](https://github.com/jonas/tig)
+
+```bash
+git clone git@github.com:jonas/tig.git
+cd tig
+sudo make install prefix=/usr/local
+sudo make install-doc prefix=/usr/local  # Install the docs
+```
