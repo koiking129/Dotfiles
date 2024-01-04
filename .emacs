@@ -142,6 +142,15 @@
 
 ;; Hide emphasis markers
 (setq org-hide-emphasis-markers t)
+;; Hide the white spaces when emphasizing Hanzi
+(font-lock-add-keywords 'org-mode
+                        '(("\\cc\\( \\)[/+*_=~][^a-zA-Z0-9/+*_=~\n]+?[/+*_=~]\\( \\)?\\cc?"
+                           (1 (prog1 ()
+				(compose-region (match-beginning 1) (match-end 1) ""))))
+                          ("\\cc?\\( \\)?[/+*_=~][^a-zA-Z0-9/+*_=~\n]+?[/+*_=~]\\( \\)\\cc"
+                           (2 (prog1 ()
+				(compose-region (match-beginning 2) (match-end 2) "")))))
+                        'append)
 
 ;; Expand emphasis markers automatically
 (use-package org-appear
