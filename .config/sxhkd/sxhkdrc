@@ -1,20 +1,19 @@
 # Volume
-XF86Audio{Raise,Lower}Volume
-    amixer set Master 5%{+,-} unmute
-XF86AudioMute
-    amixer set Master toggle
-ctrl + alt + {equal,minus}
-    amixer set Master 5%{+,-} unmute
-ctrl + alt + 0
-    amixer set Master toggle
+XF86Audio{Mute,LowerVolume,RaiseVolume}
+    _volume_control.sh {toggle,5%-,5%+}
+ctrl + alt + {0,minus,equal}
+    _volume_control.sh {toggle,5%-,5%+}
 
-# Multimedia controls
+# Music player controls
 ctrl + alt + {p,bracketleft,bracketright}
-    mpc {toggle,prev,next}
+    _music_control.sh {toggle,prev,next}
 
 # Brightness
-XF86MonBrightness{Up,Down}
-    light -{A,U} 5
+XF86MonBrightness{Down,Up}
+    _brightness_control.sh {-,+}10
+# ; and '
+ctrl + alt + {semicolon,apostrophe}
+    _brightness_control.sh {-,+}10
 
 # Screenshot
 Print
@@ -24,7 +23,7 @@ ctrl + Print
 
 # WeChat
 ctrl + alt + w
-    xdotool key --window $(xdotool search --limit 1 --all --classname "wechat") "ctrl+alt+W"  # Send this shortcut to WeChat
+    _wechat_toggle.sh
 
 # Power menu
 super + shift + Escape
