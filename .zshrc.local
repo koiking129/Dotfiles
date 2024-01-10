@@ -1,9 +1,9 @@
 # Executable files
-export PATH=$HOME/.local/bin:$PATH
+# export PATH=$HOME/.local/bin:$PATH
 
 
-# Ranger
-export EDITOR=editor  # Specify text editor for ranger (also change `sensible-editor`)
+# Specify the default text editor (also change `sensible-editor`)
+export EDITOR="nvim"
 
 # Press `Q`: change to ranger’s directory on quit
 # https://github.com/ranger/ranger/wiki/Integration-with-other-programs#allow-deciding-whether-your-shell-should-change-to-rangers-directory-on-quit
@@ -34,6 +34,9 @@ alias la="lsd -a"
 alias lt="lsd --tree"
 alias llt="lsd -t"
 alias lls="lsd -S"
+alias vi="nvim"
+alias vim="nvim"
+alias em="emacs -nw"
 
 type batcat > /dev/null && alias bat="batcat"
 type bat > /dev/null && alias cat="bat"
@@ -55,6 +58,7 @@ export GF_VERTICAL_THRESHOLD="10"
 export GF_VERTICAL_PREVIEW_PERCENT_CALCULATION="70"
 alias gf="git fuzzy"
 
+# Setup the proxy
 function proxy {
     if [ "$1" = "off" ]; then
         unset http{s,}_proxy all_proxy no_proxy
@@ -108,7 +112,7 @@ _comp_options+=(globdots)
 zstyle ':completion:*' special-dirs false
 
 
-# Plugins
+# Plugins without Oh-My-Zsh
 if [ -z "$ZSH" ]; then
     # oh-my-zsh will import these plugins and scripts automatically
     PLUGIN_HOME="$HOME/.oh-my-zsh/custom/plugins"
@@ -172,4 +176,3 @@ eval "$(zoxide init zsh)"
 
 # Taskwarrior
 # type task > /dev/null && task next
-

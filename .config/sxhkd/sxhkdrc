@@ -24,7 +24,7 @@ ctrl + Print
 
 # WeChat
 ctrl + alt + w
-    xdotool key --window $(xdotool search --limit 1 --all --pid $(pgrep WeChat.exe)) "ctrl+alt+W"  # Send this shortcut to WeChat
+    xdotool key --window $(xdotool search --limit 1 --all --classname "wechat") "ctrl+alt+W"  # Send this shortcut to WeChat
 
 # Power menu
 super + shift + Escape

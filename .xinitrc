@@ -2,9 +2,9 @@
 
 # DPI
 if xrandr --listactivemonitors | grep -Ev "(^Monitors)|(eDP$)"
-then  # Desktop
+then  # Desktop: 2560x1440 at 24 inch
     echo "Xft.dpi: 144" | xrdb -merge
-else  # Laptop
+else  # Laptop: 2560x1600 at 13 inch
     echo "Xft.dpi: 192" | xrdb -merge
 fi
 export GDK_SCALE=2
@@ -26,11 +26,14 @@ slstatus &
 nm-applet &
 
 # Proxy
-/opt/Clash/cfw &
+cfw &
 
 # Prevent screen from blanking after inactivity
 xset s off
 xset dpms 0 0 0
+
+# Disable the beep sound
+xset b off
 
 # Screen lock
 xautolock \
@@ -51,15 +54,23 @@ keyd-application-mapper -d
 flameshot &
 
 # Bukuserver
-BUKUSERVER_PER_PAGE=100 $HOME/.local/bin/bukuserver run &
+BUKUSERVER_PER_PAGE=100 bukuserver run &
 
 # Syncthing
-$HOME/.local/bin/syncthing --no-browser &
+syncthing --no-browser &
+
+# Input Method
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+fcitx5 -d
 
 # Enable IME support in the kitty terminal
 # the value can only be `ibus` (also work with Fcitx5)
 export GLFW_IM_MODULE=ibus
 
+# Notification
+dunst &
+
 # Start window manager
 dwm
-

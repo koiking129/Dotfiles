@@ -11,9 +11,9 @@ case "$*" in
         keyd-application-mapper -d > /dev/null
         [ $? -eq 0 ] && notify-send "keyd-application-mapper reloaded" "PID $(pgrep keyd-app)"
         ;;
-    "fava -> life.beancount")
-        "$HOME/.local/bin/fava" "$HOME/Accounting/life.beancount" -p 5001 > /dev/null &
-        [ $? -eq 0 ] && notify-send "fava life.beancount started" "PID $(pgrep fava)"
+    "fava -> life")
+        fava "$HOME/Accounting/life.beancount" -p 5001 > /dev/null &
+        [ $? -eq 0 ] && notify-send "fava -> life started" "PID $(pgrep fava | head -1)"
         ;;
     "Random wallpaper")
         nitrogen --random $HOME/Pictures/Wallpapers --set-zoom-fill
@@ -21,7 +21,7 @@ case "$*" in
     "")
         echo "sxhkd"
         echo "keyd-application-mapper"
-        echo "fava -> life.beancount"
+        echo "fava -> life"
         echo "Random wallpaper"
         ;;
 esac
