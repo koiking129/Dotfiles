@@ -51,3 +51,6 @@ vim.o.signcolumn = "yes"
 
 -- Remove the tilde symbols
 vim.opt.fillchars = { eob = " " }
+
+-- To copy/paste with the system clipboard
+vim.o.clipboard = "unnamedplus"

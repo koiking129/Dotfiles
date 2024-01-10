@@ -33,8 +33,5 @@ vim.keymap.set('n', '<F5>', ':exec "w|!" run_cmd[&ft] "%" <CR>')
 vim.keymap.set('v', '<leader>r', ':w !bash <CR>')
 vim.keymap.set('n', '<leader>yr', ':.w !bash <CR>')
 
--- Copy
-vim.keymap.set('v', '<leader>c', '"+y')
-
 -- Line wrap
 vim.keymap.set('n', '<a-z>', ':set wrap! <CR>')
