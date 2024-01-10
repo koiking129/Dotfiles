@@ -1,3 +1,15 @@
+# Exit immediately if run outside of the Git repository
+notARepository: 'quit'
+
+gui:
+  language: 'en'
+  nerdFontsVersion: "3"
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+
 customCommands:
   # File history
   - key: t
