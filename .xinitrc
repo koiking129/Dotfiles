@@ -9,6 +9,7 @@ else  # Laptop: 2560x1600 at 13 inch
 fi
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
+export QT_SCALE_FACTOR=1.3
 
 # Multiple displays
 autorandr -c

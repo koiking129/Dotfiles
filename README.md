@@ -228,3 +228,9 @@ cd tig
 sudo make install prefix=/usr/local
 sudo make install-doc prefix=/usr/local  # Install the docs
 ```
+## WPS
+
+WPS honors screen DPI by default. However, `export QT_SCALE_FACTOR=1.3` will
+cause some UI issues. To disable the global scale for WPS, you may write
+`unset QT_SCALE_FACTOR` to `/usr/bin/wps`. What's more, WPS can be scaled
+with `QT_FONT_DPI=240 wps`
