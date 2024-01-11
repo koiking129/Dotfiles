@@ -83,9 +83,8 @@
 	 ("C-S-d" . crux-duplicate-current-line-or-region)
 	 ("C-x ," . crux-find-user-init-file)))  ;; Open the init file
 (use-package hungry-delete  ;; Delete up to non-whitespace character
-  :hook (after-init . global-hungry-delete-mode))  ;; Enable hungry-deltele as default
-  ;; :bind (("C-c DEL" . hungry-delete-backward)  ;; Delete preceding
-  ;; 	 ("C-c d"   . hungry-delete-forward))) ;; Delete following
+  :bind (("C-c DEL" . hungry-delete-backward)  ;; Delete preceding
+         ("C-c d"   . hungry-delete-forward))) ;; Delete following
 
 ;; Minibuffer
 (use-package ivy
