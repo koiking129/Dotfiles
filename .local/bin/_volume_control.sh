@@ -9,7 +9,7 @@ _toggle=$(amixer get Master | tail -1 | awk -F '[][]' '{print $4}')
 [ "$_toggle" = "off" ] && _vol="off" || _vol="$_volume"
 
 # Notification
-dunstify "Volume: $_vol" -h int:value:$_volume -r 2
+dunstify "Volume: $_vol" -h int:value:$_volume -r 2 -t 2000
 
 # Play the volume changed sound
 canberra-gtk-play -i audio-volume-change
