@@ -46,11 +46,11 @@
 ;; Initialize
 (require 'package)
 (unless (bound-and-true-p package--initialized)
-    (package-initialize))
+  (package-initialize))
 
 ;; Refresh package contents from the source
 (unless package-archive-contents
-    (package-refresh-contents))
+  (package-refresh-contents))
 
 ;; require before use
 (require 'use-package)
@@ -79,9 +79,9 @@
 ;; Editing
 (use-package crux
   :bind (("C-k" . crux-smart-kill-line)  ;; Delete current line
-	 ("C-a" . crux-move-beginning-of-line)  ;; Move to the first non-whitespace character
-	 ("C-S-d" . crux-duplicate-current-line-or-region)
-	 ("C-x ," . crux-find-user-init-file)))  ;; Open the init file
+         ("C-a" . crux-move-beginning-of-line)  ;; Move to the first non-whitespace character
+         ("C-S-d" . crux-duplicate-current-line-or-region)
+         ("C-x ," . crux-find-user-init-file)))  ;; Open the init file
 (use-package hungry-delete  ;; Delete up to non-whitespace character
   :bind (("C-c DEL" . hungry-delete-backward)  ;; Delete preceding
          ("C-c d"   . hungry-delete-forward))) ;; Delete following
@@ -119,7 +119,7 @@
 ;; Line and region moving
 (use-package drag-stuff
   :bind (("M-n" . drag-stuff-down)
-	 ("M-p" . drag-stuff-up)))
+         ("M-p" . drag-stuff-up)))
 
 
 ;; ==================== Org-mode ====================
@@ -146,10 +146,10 @@
 (font-lock-add-keywords 'org-mode
                         '(("\\cc\\( \\)[/+*_=~][^a-zA-Z0-9/+*_=~\n]+?[/+*_=~]\\( \\)?\\cc?"
                            (1 (prog1 ()
-				(compose-region (match-beginning 1) (match-end 1) ""))))
+                                (compose-region (match-beginning 1) (match-end 1) ""))))
                           ("\\cc?\\( \\)?[/+*_=~][^a-zA-Z0-9/+*_=~\n]+?[/+*_=~]\\( \\)\\cc"
                            (2 (prog1 ()
-				(compose-region (match-beginning 2) (match-end 2) "")))))
+                                (compose-region (match-beginning 2) (match-end 2) "")))))
                         'append)
 
 ;; Expand emphasis markers automatically
@@ -159,7 +159,7 @@
 ;; Scale up the latex formula
 (with-eval-after-load 'org  ;; Set it before org mode will result in a warning
   (setq org-format-latex-options
-	(plist-put org-format-latex-options :scale 4.3)))
+        (plist-put org-format-latex-options :scale 4.3)))
 
 ;; Preview latex automatically
 (use-package org-fragtog
@@ -192,8 +192,8 @@
 
 (setq org-capture-templates
       '(("j" "Journal"  ;; Prompt
-	entry (file+datetree "~/Documents/Notes/Journal.org")
-        "* %^{heading} %U\n  %?")))  ;; Template
+         entry (file+datetree "~/Documents/Notes/Journal.org")
+         "* %^{heading} %U\n  %?")))  ;; Template
 
 
 ;; ==================== Writing ====================
