@@ -183,6 +183,9 @@
 ;; Default working directory
 (setq default-directory (concat (getenv "HOME") "/Documents/Notes"))
 
+;; Use space instead of tab for indentation
+(setq-default indent-tabs-mode nil)
+
 
 ;; ==================== Journal ====================
 (define-key global-map "\C-cc" 'org-capture)
