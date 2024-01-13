@@ -73,5 +73,8 @@ export GLFW_IM_MODULE=ibus
 # Notification
 dunst &
 
+# Automounter
+udiskie --smart-tray &
+
 # Start window manager
 dwm
