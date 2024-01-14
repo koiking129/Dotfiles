@@ -169,6 +169,12 @@ require('lazy').setup({
     end
   },
 
+  -- Color preview
+  {
+    'norcalli/nvim-colorizer.lua',
+    opts = {'*'},  -- Enable for any filetypes
+  },
+
   -- Miscellaneous
   {
     "dstein64/vim-startuptime",
