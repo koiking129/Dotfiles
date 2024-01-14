@@ -43,3 +43,7 @@ super + s
 # Mouse wheel
 super + {button5,button4}
     dwmc focusstack {+,-}1
+
+# Remove \n while copying from pdf
+~button2
+    _copy_rmnl.sh
