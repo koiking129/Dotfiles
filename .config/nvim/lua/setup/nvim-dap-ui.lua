@@ -28,7 +28,7 @@ M.config = function ()
 
   -- Debugger starts
   dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
+    dapui.open({ reset = true })  -- Reset the layouts when opening the dap-ui
   end
 
   -- :DapTerminate
@@ -44,8 +44,8 @@ M.config = function ()
     dapui.close()
   end
 
-  vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint <CR>")
-  vim.keymap.set("n", "<leader>dr", ":DapContinue <CR>")
+  -- Toggle the dap-ui
+  vim.keymap.set("n", "<leader>dui", ":lua require('dapui').toggle({ reset = true }) <CR>")
 end
 
 
