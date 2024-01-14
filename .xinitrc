@@ -11,6 +11,16 @@ export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 export QT_SCALE_FACTOR=1.3
 
+# Input Method
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+fcitx5 -d
+
+# Enable IME support in the kitty terminal
+# the value can only be `ibus` (also work with Fcitx5)
+export GLFW_IM_MODULE=ibus
+
 # Multiple displays
 autorandr -c
 
@@ -59,16 +69,6 @@ BUKUSERVER_PER_PAGE=100 bukuserver run &
 
 # Syncthing
 syncthing --no-browser &
-
-# Input Method
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-fcitx5 -d
-
-# Enable IME support in the kitty terminal
-# the value can only be `ibus` (also work with Fcitx5)
-export GLFW_IM_MODULE=ibus
 
 # Notification
 dunst &
