@@ -150,8 +150,16 @@ require('lazy').setup({
       "folke/which-key.nvim",
     },
     opts = {
-      root_key = "s",  -- Triggered by <leader>s
+      root_key = "S",  -- Triggered by <leader>S
     }
+  },
+
+  -- Expand or collapse nested code blocks
+  {
+    'Wansmer/treesj',
+    keys = {'<space>m', '<space>j', '<space>s'},
+    dependencies = {'nvim-treesitter/nvim-treesitter'},
+    opts = {},
   },
 
   -- Keymap hint
