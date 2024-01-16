@@ -26,6 +26,9 @@ require('lazy').setup({
     config = require('setup/fzf').config
   },
 
+  -- Directory navigation
+  'nanotee/zoxide.vim',
+
   -- Bufferline
   {
     'akinsho/bufferline.nvim', version = "*",
