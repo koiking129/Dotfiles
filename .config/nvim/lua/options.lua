@@ -54,3 +54,6 @@ vim.opt.fillchars = { eob = " " }
 
 -- To copy/paste with the system clipboard
 vim.o.clipboard = "unnamedplus"
+
+-- Inhibit auto comment in newline
+vim.cmd("autocmd FileType * set formatoptions-=ro")
