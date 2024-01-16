@@ -2,12 +2,12 @@ local M = {}
 
 
 M.config = function ()
-  -- disable netrw at the very start of your init.lua (strongly advised)
-  -- netrw is a file explorer that comes bundled with vim
-  vim.g.loaded_netrw = 1
-  vim.g.loaded_netrwPlugin = 1
-
-  require("nvim-tree").setup()
+  require("nvim-tree").setup({
+    -- Keep using netrw without its browser features
+    -- To bring back the shortcut `gx` provided by Netrw
+    disable_netrw = false,
+    hijack_netrw  = true,
+  })
 
   -- keymaps
   vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<cr>')
