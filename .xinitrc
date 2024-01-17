@@ -36,6 +36,9 @@ slstatus &
 # Network Manager
 nm-applet &
 
+# Bluetooth
+blueman-applet &
+
 # Proxy
 cfw &
 
