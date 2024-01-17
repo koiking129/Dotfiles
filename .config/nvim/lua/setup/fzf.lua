@@ -2,9 +2,13 @@ local M = {}
 
 
 M.config = function ()
-  vim.keymap.set('n', '<c-a>', ':Ag<cr>')
-  vim.keymap.set('n', '<c-p>', ':Files<cr>')
-  vim.keymap.set('n', '<c-g>', ':GFiles?<cr>')
+  vim.env.FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git' --glob '!node_modules'"
+  vim.keymap.set('n', '<leader>ff', ':Files <CR>')
+
+  vim.keymap.set('n', '<leader>fa', ':Ag <CR>')
+  vim.keymap.set('n', '<leader>fb', ":Buffers <CR>")
+
+  vim.keymap.set('n', '<leader>fg', ':GFiles? <CR>')
 end
 
 
