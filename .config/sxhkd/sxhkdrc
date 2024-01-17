@@ -47,3 +47,7 @@ super + {button5,button4}
 # Remove \n while copying from pdf
 ~button2
     _copy_rmnl.sh
+
+# Kill the window by clicking it
+super + shift + k
+    pgrep _kill_clicked && pkill xprop || _kill_clicked.sh
