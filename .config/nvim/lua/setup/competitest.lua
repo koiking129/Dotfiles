@@ -14,6 +14,10 @@ M.config = function ()
     },
   })
 
+  vim.keymap.set("n", "<leader>cp", ":CompetiTest receive problem <CR>")
+  vim.keymap.set("n", "<leader>cc", ":CompetiTest receive contest <CR>")
+  vim.keymap.set("n", "<leader>cr", ":CompetiTest run <CR>")
+  vim.keymap.set("n", "<leader>cui", ":CompetiTest show_ui <CR>")
 end
 
 
