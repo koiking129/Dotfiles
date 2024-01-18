@@ -196,6 +196,13 @@ require('lazy').setup({
     opts = {'*'},  -- Enable for any filetypes
   },
 
+  -- Indent
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
+    config = require('setup.ibl').config
+  },
+
   -- Miscellaneous
   {
     "dstein64/vim-startuptime",
