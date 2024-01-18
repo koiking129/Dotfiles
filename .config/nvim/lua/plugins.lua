@@ -79,6 +79,11 @@ require('lazy').setup({
     build = ':TSUpdate',
     config = require('setup/nvim-treesitter').config
   },
+  -- Highlight other uses of the word under the cursor
+  {
+    "rrethy/vim-illuminate",
+    config = require('setup.vim-illuminate').config,
+  },
 
   -- Command prompt
   {
