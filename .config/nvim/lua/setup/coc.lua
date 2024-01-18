@@ -40,6 +40,17 @@ M.config = function ()
   -- Prettier
   vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument')
   vim.keymap.set('v', '<leader>f', '<Plug>(coc-format-selected)')  -- Range format
+  -- GoTo code navigation
+  vim.keymap.set("n", "gd", "<Plug>(coc-definition)", {silent = true})
+  vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
+  vim.keymap.set("n", "gi", "<Plug>(coc-implementation)", {silent = true})
+  vim.keymap.set("n", "gr", "<Plug>(coc-references)", {silent = true})
+
+  -- Symbol renaming
+  vim.keymap.set("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+
+  -- Find symbol of current document
+  vim.keymap.set("n", "<leader>o", ":CocList outline<cr>", {silent = true, nowait = true})
 end
 
 
