@@ -2,15 +2,19 @@ local M = {}
 
 
 M.config = function ()
-  vim.g.coc_global_extensions = {
-    'coc-sh',
-    'coc-lua',
-    'coc-pyright',
-    'coc-phpls',
-    'coc-tsserver',
-    'coc-prettier',
-    'coc-snippets',
-  }
+  -- Extensions installed
+  -- vim.g.coc_global_extensions = {
+  --   'coc-marketplace',  -- Extensions market
+  --   'coc-clangd',
+  --   'coc-sh',
+  --   'coc-lua',
+  --   'coc-pyright',
+  --   'coc-tsserver',
+  --   'coc-phpls',
+  --   'coc-prettier',
+  --   'coc-snippets',
+  --   'coc-pairs',  -- Auto pair
+  -- }
 
   -- Use Tab for trigger completion with characters ahead and navigate
   -- NOTE: There's always a completion item selected by default, you may want to enable
