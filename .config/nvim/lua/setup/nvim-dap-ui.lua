@@ -7,8 +7,9 @@ M.config = function ()
     layouts = {
       {
         elements = {
-          { id = "scopes", size = 0.8 },
+          { id = "scopes", size = 0.6 },
           { id = "watches", size = 0.2 },
+          { id = "breakpoints", size = 0.2},
         },
         size = 30, -- columns
         position = "left",

@@ -14,7 +14,7 @@
  'default nil
  :font "JetBrains Mono-16")
 (dolist (charset '(kana han cjk-misc bopomofo))
-  (set-fontset-font t charset "思源黑体"))
+  (set-fontset-font t charset "Noto Sans CJK SC"))
 
 ;; Show line number
 (global-display-line-numbers-mode t)
@@ -74,7 +74,8 @@
 
 ;; Completion
 (use-package company
-  :hook (after-init . global-company-mode))
+  :hook (after-init . global-company-mode)
+  :config (setq company-minimum-prefix-length 1))
 
 ;; Editing
 (use-package crux

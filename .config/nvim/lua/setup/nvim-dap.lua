@@ -14,11 +14,13 @@ end
 M.config = function ()
   local dap = require("dap")
 
-  -- via vscode-cpptools
+  -- Use vscode-cpptools
+  local debugger_bin = vim.fn.expand('$HOME/.config/nvim/cpptools/extension/debugAdapters/bin/OpenDebugAD7')
+
   dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = vim.fn.expand('$HOME/.config/nvim/cpptools/extension/debugAdapters/bin/OpenDebugAD7'),
+    command = debugger_bin,
   }
   dap.configurations.cpp = {
     {

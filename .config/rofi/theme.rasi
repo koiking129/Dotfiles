@@ -54,8 +54,8 @@ textbox {
 
 // ==================== Item list ====================
 listview {
-  fixed-height: false;  // Reduce the window height adaptively
-  cycle: false;  // Don't cycle around the list
+  fixed-height: true;  // Fixed window height
+  cycle: true;  // Cycle through the list
   lines: 13;  // The number of rows to show
 }
 
