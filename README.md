@@ -8,25 +8,26 @@
 git clone --bare git@github.com:Zhniing/Dotfiles.git $HOME/Projects/Dotfiles.git
 ```
 
-### 2. Create an alias `cit` (**c**onfig & g**it**) to access this bare repository
+### 2. Create an alias `dit` (**d**otfiles & g**it**)
 
-After the `.zshrc` being sourced, you can access this repository using `git` straightforwardly **when** your working directory is `$HOME`
+After the `.zshrc` being sourced, you can interact with this bare repository
+using `git` directly **when** your working directory is `$HOME`
 
 ```bash
-alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"
+alias dit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"
 ```
 
 ### 3. Ignore untracked files in `git status`
 
 ```bash
-cit config --local status.showUntrackedFiles no
+dit config --local status.showUntrackedFiles no
 ```
 
 ### 4. Restore files (will overwrite existing files):
 
 ```bash
-cit checkout HEAD <FILE>  # Restore the specific file
-cit reset --hard HEAD     # Restore all files
+dit checkout HEAD <FILE>  # Restore the specific file
+dit reset --hard HEAD     # Restore all files
 ```
 
 Resources: 

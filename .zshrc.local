@@ -1,7 +1,3 @@
-# Executable files
-# export PATH=$HOME/.local/bin:$PATH
-
-
 # Specify the default text editor (also change `sensible-editor`)
 export EDITOR="nvim"
 
@@ -35,19 +31,22 @@ alias lt="lsd --tree"
 alias llt="lsd -t"
 alias lls="lsd -S"
 alias vi="nvim"
-alias vim="nvim"
 alias em="emacs -nw"
+alias bt="bluetuith"
+alias ncm="ncmpcpp"
 
 type batcat > /dev/null && alias bat="batcat"
 type bat > /dev/null && alias cat="bat"
 
-alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
 # Path to Dotfiles.git
 DOT_REPO="$HOME/Projects/Dotfiles.git"
 
+# To interact with the Dotfiles.git repo
+alias dit="git --git-dir=$DOT_REPO --work-tree=$HOME"
+
 # Retrieve the directories that contain the dotfiles into $DOT_DIRS
 export DOT_DIRS="$HOME"
-for _FILE in $(cit ls-files | grep \/); do
+for _FILE in $(dit ls-files | grep \/); do
     _DIR="$HOME/${_FILE%/*}"  # Get the directory of the file
     [[ ":$DOT_DIRS:" =~ ":$_DIR:" ]] || DOT_DIRS="$DOT_DIRS:$_DIR"
 done
@@ -71,6 +70,7 @@ alias yay="env -u GIT_DIR -u GIT_WORK_TREE yay"
 # Fallback to the vanilla lazygit if GIT_DIR is unset
 alias lg='lazygit --git-dir=$GIT_DIR --work-tree=$GIT_WORK_TREE'
 
+# git-fuzzy
 export PATH="$HOME/Projects/git-fuzzy/bin:$PATH"
 export GF_VERTICAL_THRESHOLD="10"
 export GF_VERTICAL_PREVIEW_PERCENT_CALCULATION="70"
@@ -92,7 +92,7 @@ function proxy {
 
 
 # Weird empty folder in $HOME
-[ -d "$HOME/模板/" ] && rmdir "$HOME/模板/"
+# [ -d "$HOME/模板/" ] && rmdir "$HOME/模板/"
 
 
 # Load conda on demand (conda will cause a slowdown in zsh initialization)
@@ -143,8 +143,9 @@ if [ -z "$ZSH" ]; then
     source $PLUGIN_HOME/fzf-tab/fzf-tab.plugin.zsh
 
     {
-        # xsource() of grml will append some positional arguments: ".zshrc.local" "..." (i.e. filename)
-        # which needs to be removed, or fzf-git.sh will breakdown.
+        # xsource() of grml will append some positional arguments:
+        # ".zshrc.local" "..." (i.e. filename) which needs to be removed, or
+        # fzf-git.sh will breakdown.
         args="$@" && shift "${#argv}"
 
         # wget https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh -O ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/fzf-git.zsh
