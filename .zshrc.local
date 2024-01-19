@@ -42,16 +42,34 @@ type batcat > /dev/null && alias bat="batcat"
 type bat > /dev/null && alias cat="bat"
 
 alias cit="git --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"  # cit: config + git
-function git {  # To avoid duplicate alias definitions
-    if [ "$PWD" = "$HOME" ]; then
-        command git --git-dir="$HOME/Projects/Dotfiles.git" --work-tree="$HOME" "$@"
+# Path to Dotfiles.git
+DOT_REPO="$HOME/Projects/Dotfiles.git"
+
+# Retrieve the directories that contain the dotfiles into $DOT_DIRS
+export DOT_DIRS="$HOME"
+for _FILE in $(cit ls-files | grep \/); do
+    _DIR="$HOME/${_FILE%/*}"  # Get the directory of the file
+    [[ ":$DOT_DIRS:" =~ ":$_DIR:" ]] || DOT_DIRS="$DOT_DIRS:$_DIR"
+done
+
+# Setup the repository location of Dotfiles.git when you are in $DOT_DIRS
+# PROS: Show the git info in the prompt; Get rid of the annoying options
+# CONS: Can't run `git clone`
+function precmd {  # Executed before each prompt
+    if [[ ":$DOT_DIRS:" =~ ":$PWD:" ]]; then
+        export GIT_DIR="$DOT_REPO"
+        export GIT_WORK_TREE="$HOME"
     else
-        command git "$@"
+        unset GIT_DIR
+        unset GIT_WORK_TREE
     fi
 }
 
-alias lg="lazygit"
-alias lgd="lazygit --git-dir=$HOME/Projects/Dotfiles.git --work-tree=$HOME"
+# Remove the $GIT_DIR and $GIT_WORK_TREE that conflict with the `git clone`
+alias yay="env -u GIT_DIR -u GIT_WORK_TREE yay"
+
+# Fallback to the vanilla lazygit if GIT_DIR is unset
+alias lg='lazygit --git-dir=$GIT_DIR --work-tree=$GIT_WORK_TREE'
 
 export PATH="$HOME/Projects/git-fuzzy/bin:$PATH"
 export GF_VERTICAL_THRESHOLD="10"
