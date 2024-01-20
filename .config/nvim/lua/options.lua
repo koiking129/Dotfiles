@@ -1,10 +1,12 @@
 -- Line number
 vim.o.number = true
--- [Use relative line numbers when entering visual mode](https://neovim.io/doc/user/autocmd.html#ModeChanged)
-vim.cmd("au ModeChanged [vV\x16]*:* let &l:rnu = mode() =~# '^[vV\x16]'")
-vim.cmd("au ModeChanged *:[vV\x16]* let &l:rnu = mode() =~# '^[vV\x16]'")
-vim.cmd("au WinEnter,WinLeave * let &l:rnu = mode() =~# '^[vV\x16]'")
--- `\x16`: refer to [this](https://en.wikipedia.org/wiki/List_of_Unicode_characters#Control_codes)
+
+-- Relative line number
+vim.o.relativenumber = true
+-- Only use relative line numbers in visual mode (`\x16` is <C-v>)
+-- vim.cmd("au ModeChanged [vV\x16]*:* let &l:rnu = mode() =~# '^[vV\x16]'")
+-- vim.cmd("au ModeChanged *:[vV\x16]* let &l:rnu = mode() =~# '^[vV\x16]'")
+-- vim.cmd("au WinEnter,WinLeave * let &l:rnu = mode() =~# '^[vV\x16]'")
 
 -- The length of tab
 vim.o.tabstop = 4

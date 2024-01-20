@@ -40,6 +40,8 @@ super + e
     wmctrl -x -a emacs
 super + s
     wmctrl -x -a kitty
+super + c
+    wmctrl -x -a neovide
 # Mouse wheel
 super + {button5,button4}
     dwmc focusstack {+,-}1
