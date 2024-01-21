@@ -1,9 +1,9 @@
 {
-  "Lua.workspace.library": {
-    "/usr/local/share/nvim/runtime/lua": true,
-    "/usr/local/share/nvim/runtime/lua/vim": true,
-    "/usr/local/share/nvim/runtime/lua/vim/lsp": true
-  },
+  "Lua.workspace.library": [
+    "/usr/share/nvim/runtime/lua/",
+    "/usr/share/nvim/runtime/lua/vim/",
+    "/usr/share/nvim/runtime/lua/vim/lsp/",
+  ],
   "Lua.diagnostics.globals": ["vim"],
 
   "diagnostic.virtualText": true,

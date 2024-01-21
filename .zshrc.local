@@ -1,8 +1,7 @@
 # Specify the default text editor (also change `sensible-editor`)
 export EDITOR="nvim"
 
-# Press `Q`: change to ranger’s directory on quit
-# https://github.com/ranger/ranger/wiki/Integration-with-other-programs#allow-deciding-whether-your-shell-should-change-to-rangers-directory-on-quit
+# Exiting into current directory for ranger
 function ranger {
     local IFS=$'\t\n'
     local tempfile="$(mktemp -t tmp.XXXXXX)"
@@ -68,7 +67,7 @@ function precmd {  # Executed before each prompt
 alias yay="env -u GIT_DIR -u GIT_WORK_TREE yay"
 
 # Fallback to the vanilla lazygit if GIT_DIR is unset
-alias lg='lazygit --git-dir=$GIT_DIR --work-tree=$GIT_WORK_TREE'
+alias lg='lazygit'
 
 # git-fuzzy
 export PATH="$HOME/Projects/git-fuzzy/bin:$PATH"
@@ -118,7 +117,7 @@ function conda {
 
 
 # fzf
-FZF_COMPLETION_TRIGGER='\'
+export FZF_COMPLETION_TRIGGER='\'
 
 
 # Completion options
@@ -184,14 +183,3 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bot
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
-
-
-# Zoxide
-eval "$(zoxide init zsh)"
-
-
-# Pokemon
-# type pokemon-colorscripts > /dev/null && pokemon-colorscripts -r --no-title || true
-
-# Taskwarrior
-# type task > /dev/null && task next

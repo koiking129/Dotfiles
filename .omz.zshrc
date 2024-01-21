@@ -77,6 +77,7 @@ plugins=(
     git
     colored-man-pages
     fzf
+    zoxide
 
     # git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
     fzf-tab

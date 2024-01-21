@@ -21,7 +21,7 @@ M.config = function ()
         fuzzy = 1,
       }),
 
-      -- Fuzzy for searching
+      -- Searching
       wilder.search_pipeline()
     )
   })
