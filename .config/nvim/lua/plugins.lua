@@ -14,9 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- File explorer
   {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    config = require('setup/nvim-tree').config
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = require('setup.neo-tree').config
   },
 
   -- Fuzzy search
