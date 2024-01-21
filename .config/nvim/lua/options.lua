@@ -57,3 +57,9 @@ vim.o.clipboard = "unnamedplus"
 
 -- Inhibit auto comment in newline
 vim.cmd("autocmd FileType * set formatoptions-=ro")
+
+-- GUI configurations for Neovide
+if vim.g.neovide then
+  vim.o.guifont = "JetBrainsMono NF:h12"
+  vim.g.neovide_transparency = 0.95
+end
