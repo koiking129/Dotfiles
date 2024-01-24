@@ -65,6 +65,16 @@ function precmd {  # Executed before each prompt
     fi
 }
 
+function git {
+    # Remove the $GIT_DIR and $GIT_WORK_TREE before executing `git clone`
+    if [ "$1" = "clone" ] ; then
+        # env -u GIT_DIR -u GIT_WORK_TREE -- command git "$@"  # TESTING:
+        unset GIT_DIR
+        unset GIT_WORK_TREE
+    fi
+    command git "$@"
+}
+
 # Remove the $GIT_DIR and $GIT_WORK_TREE that conflict with the `git clone`
 alias yay="env -u GIT_DIR -u GIT_WORK_TREE yay"
 
