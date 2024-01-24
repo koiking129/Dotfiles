@@ -102,7 +102,7 @@ local o = {
     font_opacity_selection_marker = "99",
 
     font_size_header = 35,
-    font_size_body = 25,
+    font_size_body = 30,
     font_size_wrappers = 16,
 
     font_name_header = "",

@@ -4,10 +4,10 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>nh', ':noh <CR>')
 
 -- Windows navigation
-vim.keymap.set('n', '<c-h>', '<c-w>h')
-vim.keymap.set('n', '<c-j>', '<c-w>j')
-vim.keymap.set('n', '<c-k>', '<c-w>k')
-vim.keymap.set('n', '<c-l>', '<c-w>l')
+vim.keymap.set('n', '<A-h>', '<CMD>wincmd h<CR>')
+vim.keymap.set('n', '<A-j>', '<CMD>wincmd j<CR>')
+vim.keymap.set('n', '<A-k>', '<CMD>wincmd k<CR>')
+vim.keymap.set('n', '<A-l>', '<CMD>wincmd l<CR>')
 
 -- Buffer switching
 vim.keymap.set('n', '<a-[>', ':bp <CR>')

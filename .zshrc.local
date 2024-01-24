@@ -33,6 +33,8 @@ alias vi="nvim"
 alias em="emacs -nw"
 alias bt="bluetuith"
 alias ncm="ncmpcpp"
+alias tt="taskwarrior-tui"
+alias lzd="lazydocker"
 
 type batcat > /dev/null && alias bat="batcat"
 type bat > /dev/null && alias cat="bat"
@@ -173,13 +175,17 @@ fi
 
 
 # npm
-export PATH="$HOME/.npm-packages/bin:$PATH"
+if [ -d "$HOME/.npm-packages/bin" ] ; then
+    export PATH="$HOME/.npm-packages/bin:$PATH"
+fi
 
 
 # Homebrew
-export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
-export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+if [ -d "/home/linuxbrew/.linuxbrew/bin" ] ; then
+    export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+    export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+    export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+fi

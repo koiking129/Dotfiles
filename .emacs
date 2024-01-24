@@ -12,7 +12,7 @@
 ;; Font family
 (set-face-attribute
  'default nil
- :font "JetBrains Mono-16")
+ :font "JetBrains Mono-14")
 (dolist (charset '(kana han cjk-misc bopomofo))
   (set-fontset-font t charset "Noto Sans CJK SC"))
 

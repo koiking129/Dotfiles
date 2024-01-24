@@ -25,10 +25,6 @@ ctrl + Print
 ctrl + alt + w
     _wechat_toggle.sh
 
-# Power menu
-super + shift + Escape
-    rofi -modes Power:~/.config/rofi/power.sh -show
-
 # Shortcuts menu
 super + shift + s
     rofi -modes Shortcuts:~/.config/rofi/shortcuts.sh -show
@@ -38,8 +34,8 @@ super + w
     wmctrl -x -a firefox
 super + e
     wmctrl -x -a emacs
-super + s
-    wmctrl -x -a kitty
+super + v
+    wmctrl -x -a mpv
 super + c
     wmctrl -x -a neovide
 # Mouse wheel

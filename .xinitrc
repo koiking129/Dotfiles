@@ -7,9 +7,6 @@ then  # Desktop: 2560x1440 at 24 inch
 else  # Laptop: 2560x1600 at 13 inch
     echo "Xft.dpi: 192" | xrdb -merge
 fi
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
-export QT_SCALE_FACTOR=1.3
 
 # Input Method
 export GTK_IM_MODULE=fcitx

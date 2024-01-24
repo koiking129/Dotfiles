@@ -1,4 +1,7 @@
+// vim: ft=jsonc
+
 {
+  // Declare the global `vim` for the Neovim config in lua
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua/",
     "/usr/share/nvim/runtime/lua/vim/",
@@ -6,9 +9,11 @@
   ],
   "Lua.diagnostics.globals": ["vim"],
 
-  "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.messageTarget": "echo",
+  // Show diagnostics using the virtual text
+  // "diagnostic.virtualText": true,
+  // "diagnostic.virtualTextCurrentLineOnly": false,
+  // "diagnostic.messageTarget": "echo",
 
+  // Inhibit the prompt
   "snippets.ultisnips.pythonPrompt": false,
 }
