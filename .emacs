@@ -166,6 +166,11 @@
 (use-package org-fragtog
   :hook (org-mode . org-fragtog-mode))
 
+;; Supplemental evil-mode keybindings for org-mode
+(use-package evil-org
+  :after (evil)
+  :hook (org-mode . evil-org-mode))
+
 
 ;; ==================== Beancount-mode ====================
 (use-package beancount
@@ -322,3 +327,8 @@
   :after (treemacs)
   :ensure t
   :config (treemacs-set-scope-type 'Tabs))
+
+
+;; ==================== Evil-mode ====================
+(use-package evil
+  :hook (after-init . evil-mode))
