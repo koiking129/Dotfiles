@@ -1,0 +1,18 @@
+# taskwarrior
+data.location=$HOME/.task
+
+
+# taskwarrior-tui
+
+# key bindings
+uda.taskwarrior-tui.keyconfig.done=x
+uda.taskwarrior-tui.keyconfig.delete=d
+
+# enable comfirm prompt
+uda.taskwarrior-tui.task-report.prompt-on-undo=true
+uda.taskwarrior-tui.task-report.prompt-on-delete=true
+uda.taskwarrior-tui.task-report.prompt-on-done=true
+
+# color scheme
+uda.taskwarrior-tui.style.report.scrollbar=white
+uda.taskwarrior-tui.selection.reverse=yes
