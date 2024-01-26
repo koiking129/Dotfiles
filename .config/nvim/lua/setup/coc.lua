@@ -30,16 +30,6 @@ M.config = function ()
   -- <C-g>u breaks current undo, please make your own choice
   vim.keymap.set("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
-  -- Remap <C-f> and <C-b> to scroll float windows/popups
-  ---@diagnostic disable-next-line: redefined-local
-  local opts = {silent = true, nowait = true, expr = true}
-  vim.keymap.set("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
-  vim.keymap.set("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
-  vim.keymap.set("i", "<C-f>", 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
-  vim.keymap.set("i", "<C-b>", 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
-  vim.keymap.set("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
-  vim.keymap.set("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
-
   -- Prettier command
   vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument')
   -- Formatting selected code
@@ -50,6 +40,20 @@ M.config = function ()
   vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
   vim.keymap.set("n", "gi", "<Plug>(coc-implementation)", {silent = true})
   vim.keymap.set("n", "gr", "<Plug>(coc-references)", {silent = true})
+
+  -- Toggle the float window
+  local tfw_key = "<C-w>f"
+  function _G.toggle_fw()
+    if vim.api.nvim_eval('coc#float#has_float()') ~= 0 then
+      -- Switch to the float window
+      vim.api.nvim_eval('coc#float#jump()')
+      -- Bind keys for closing the focused float window
+      local _opts = { buffer = true, silent = true }
+      vim.keymap.set("n", tfw_key, ":call coc#float#close_all() <CR>", _opts)
+      vim.keymap.set("n", "<ESC>", ":call coc#float#close_all() <CR>", _opts)
+    end
+  end
+  vim.keymap.set("n", tfw_key, '<CMD>lua _G.toggle_fw()<CR>', { silent = true })
 
   -- Symbol renaming
   vim.keymap.set("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
