@@ -332,3 +332,14 @@
 ;; ==================== Evil-mode ====================
 (use-package evil
   :hook (after-init . evil-mode))
+
+
+;; ==================== Input Method ====================
+(use-package sis
+  :after (evil)
+  :custom (sis-default-cursor-color "white")
+  :config
+  (sis-ism-lazyman-config "1" "2" 'fcitx5)
+  (sis-global-cursor-color-mode t)
+  (sis-global-respect-mode t)
+  (sis-global-context-mode t))
