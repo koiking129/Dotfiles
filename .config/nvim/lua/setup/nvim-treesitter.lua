@@ -18,8 +18,10 @@ M.config = function ()
       'javascript',
       'json',
       'json5',
+      'jsonc',
       'markdown',
       'markdown_inline',
+      'beancount',
     },
     highlight = {
       enable = true,
