@@ -77,6 +77,7 @@ require('lazy').setup({
     branch = 'release',
     config = require('setup/coc').config
   },
+  'rust-lang/rust.vim',  -- :RustFmt
 
   -- Syntax highlighting
   {
