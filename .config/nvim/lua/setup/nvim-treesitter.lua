@@ -6,6 +6,7 @@ M.config = function ()
     ensure_installed = {
       'c',
       'cpp',
+      'rust',
       'cmake',
       'lua',
       'php',
@@ -19,8 +20,14 @@ M.config = function ()
       'json',
       'json5',
       'jsonc',
+      'xml',
+      'yaml',
+      'toml',
+      'ron',
       'markdown',
       'markdown_inline',
+      'org',
+      'sxhkdrc',
       'beancount',
     },
     highlight = {

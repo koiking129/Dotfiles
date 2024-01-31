@@ -1,3 +1,5 @@
+# vim: ft=sxhkdrc
+
 # Volume
 XF86Audio{Mute,LowerVolume,RaiseVolume}
     _volume_control.sh {toggle,5%-,5%+}
