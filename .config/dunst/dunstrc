@@ -1,0 +1,33 @@
+# vim: ft=toml
+
+[global]
+    follow = "mouse"
+
+    offset = "12x32"
+    width = "(0, 500)"
+    corner_radius = 5
+    transparency = 5
+    notification_limit = 10
+
+    font = "JetBrains Mono 16"
+    icon_theme = "Qogir-dark"
+    enable_recursive_icon_lookup = true
+
+[urgency_low]
+    background = "#E5E9F0"
+    foreground = "#2E3440"
+    frame_color = "#2E3440"
+    timeout = 10
+
+[urgency_normal]
+    background = "#2E3440"
+    foreground = "#BF616A"
+    frame_color = "#BF616A"
+    highlight = "#BF616A"
+    timeout = 20
+
+[urgency_critical]
+    background = "#ffffff"
+    foreground = "#900000"
+    frame_color = "#900000"
+    timeout = 0
