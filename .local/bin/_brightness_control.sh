@@ -2,4 +2,7 @@
 
 xbacklight "$@"
 
-dunstify "Brightness: $(xbacklight -get)%" -h int:value:$(xbacklight -get) -r 1 -t 2000
+_brightness=$(xbacklight -get)
+_icon="display-brightness-symbolic"
+
+dunstify "Brightness: $_brightness%" -h int:value:$_brightness -i $_icon -r 1 -t 2000
