@@ -32,14 +32,16 @@ M.config = function ()
 
   -- Prettier command
   vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument')
-  -- Formatting selected code
-  vim.keymap.set('v', '<leader>f', '<Plug>(coc-format-selected)')
+  -- Formatting code
+  vim.keymap.set('x', '<leader>lf', '<Plug>(coc-format-selected)')
+  vim.keymap.set('n', '<leader>lf', '<Plug>(coc-format-selected)')
+  vim.keymap.set('n', '<leader>lff', '<Plug>(coc-format)')
 
   -- GoTo code navigation
-  vim.keymap.set("n", "gd", "<Plug>(coc-definition)", {silent = true})
-  vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
-  vim.keymap.set("n", "gi", "<Plug>(coc-implementation)", {silent = true})
-  vim.keymap.set("n", "gr", "<Plug>(coc-references)", {silent = true})
+  vim.keymap.set("n", "<leader>gd", "<Plug>(coc-definition)", {silent = true})
+  vim.keymap.set("n", "<leader>gy", "<Plug>(coc-type-definition)", {silent = true})
+  vim.keymap.set("n", "<leader>gi", "<Plug>(coc-implementation)", {silent = true})
+  vim.keymap.set("n", "<leader>gr", "<Plug>(coc-references)", {silent = true})
 
   -- Show documentation in the float window
   function _G.show_docs()
@@ -52,7 +54,7 @@ M.config = function ()
       vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
     end
   end
-  vim.keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true })
+  vim.keymap.set("n", "<leader>lk", '<CMD>lua _G.show_docs()<CR>', { silent = true })
 
   -- Toggle the float window
   local tfw_key = "<C-w>f"
@@ -69,10 +71,10 @@ M.config = function ()
   vim.keymap.set("n", tfw_key, '<CMD>lua _G.toggle_fw()<CR>', { silent = true })
 
   -- Symbol renaming
-  vim.keymap.set("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+  vim.keymap.set("n", "<leader>lr", "<Plug>(coc-rename)", {silent = true})
 
   -- Find symbol of current document
-  vim.keymap.set("n", "<leader>o", ":CocList outline<cr>", {silent = true, nowait = true})
+  vim.keymap.set("n", "<leader>lo", ":CocList outline<cr>", {silent = true, nowait = true})
 end
 
 
