@@ -1,0 +1,6 @@
+[Unit]
+Description="Change the wallpaper"
+
+[Service]
+Environment="DISPLAY=:0"
+ExecStart=nitrogen --random %h/Pictures/Wallpapers --set-zoom-fill
