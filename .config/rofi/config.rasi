@@ -8,7 +8,7 @@ configuration {
   matching: "regex";
 
   // HiDPI support
-  dpi: 192;
+  dpi: ${ROFI_DPI};
 }
 
 @theme "theme.rasi"

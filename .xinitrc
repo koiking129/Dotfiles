@@ -3,10 +3,14 @@
 # DPI
 if xrandr --listactivemonitors | grep -Ev "(^Monitors)|(eDP$)"
 then  # Desktop: 2560x1440 at 24 inch
-    echo "Xft.dpi: 144" | xrdb -merge
+    _DPI=144
 else  # Laptop: 2560x1600 at 13 inch
-    echo "Xft.dpi: 192" | xrdb -merge
+    _DPI=192
 fi
+echo "Xft.dpi: $_DPI" | xrdb -merge
+
+# Rofi DPI
+export ROFI_DPI="$_DPI"
 
 # Input Method
 export GTK_IM_MODULE=fcitx
