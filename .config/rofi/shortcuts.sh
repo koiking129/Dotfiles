@@ -16,7 +16,7 @@ case "$*" in
         [ $? -eq 0 ] && notify-send "fava -> life started" "PID $(pgrep fava | head -1)"
         ;;
     "Random wallpaper")
-        nitrogen --random $HOME/Pictures/Wallpapers --set-zoom-fill
+        _wallpaper_changer.sh > /dev/null &
         ;;
     "")
         echo "sxhkd"

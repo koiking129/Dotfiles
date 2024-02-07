@@ -25,7 +25,7 @@ autorandr -c
 picom -b
 
 # Wallpaper
-nitrogen --random $HOME/Pictures/Wallpapers --set-zoom-fill
+_wallpaper_changer.sh &
 
 # Status bar
 slstatus &
