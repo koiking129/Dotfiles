@@ -1,0 +1,5 @@
+# Fetch cookies
+--cookies-from-browser firefox
+
+# Video format priority
+--format-sort 'codec:av1'
