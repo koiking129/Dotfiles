@@ -32,7 +32,12 @@ require('lazy').setup({
   },
 
   -- Directory navigation
-  'nanotee/zoxide.vim',
+  {
+    'nanotee/zoxide.vim',
+    keys = {
+      { "<leader>z", ":Zi <CR>" },
+    },
+  },
 
   -- Bufferline
   {
