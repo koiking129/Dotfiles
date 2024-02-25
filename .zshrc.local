@@ -1,27 +1,10 @@
 # Specify the default text editor (also change `sensible-editor`)
 export EDITOR="nvim"
 
-# Exiting into current directory for ranger
-function ranger {
-    local IFS=$'\t\n'
-    local tempfile="$(mktemp -t tmp.XXXXXX)"
-    local ranger_cmd=(
-        command
-        ranger
-        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
-    )
-
-    ${ranger_cmd[@]} "$@"
-    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-        cd -- "$(cat "$tempfile")" || return
-    fi
-    command rm -f -- "$tempfile" 2>/dev/null
-}
-
 
 # Aliases
 alias aria2="(aria2c --enable-rpc --rpc-listen-all >> /tmp/aria2.log 2>&1 &)"
-alias ra="ranger"
+alias ra="source ranger ranger"  # Change to ranger’s directory on quit
 alias diff="diff --color"
 alias cs=". $HOME/.local/bin/conda-switch.sh"
 alias ls="lsd"
