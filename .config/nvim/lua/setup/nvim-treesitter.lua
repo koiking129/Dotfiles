@@ -20,6 +20,7 @@ M.config = function ()
       'json',
       'json5',
       'jsonc',
+      'hjson',
       'xml',
       'yaml',
       'toml',
