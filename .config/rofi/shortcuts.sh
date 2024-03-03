@@ -12,8 +12,11 @@ case "$*" in
         [ $? -eq 0 ] && notify-send "keyd-application-mapper reloaded" "PID $(pgrep keyd-app)"
         ;;
     "fava -> life")
-        fava "$HOME/Accounting/life.beancount" -p 5001 > /dev/null &
-        [ $? -eq 0 ] && notify-send "fava -> life started" "PID $(pgrep fava | head -1)"
+        PORT=5001
+        fava "$HOME/Accounting/life.beancount" -p "$PORT" > /dev/null &
+        URL="http://localhost:$PORT/beancount/balance_sheet/"
+        dunstify "fava (life) started" "$URL"
+        xdg-open "$URL" > /dev/null &
         ;;
     "Random wallpaper")
         _wallpaper_changer.sh > /dev/null &
