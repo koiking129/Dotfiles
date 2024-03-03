@@ -13,6 +13,8 @@
     icon_theme = "Qogir-dark"
     enable_recursive_icon_lookup = true
 
+    mouse_left_click = "open_url, close_current"
+
 [urgency_low]
     background = "#E5E9F0"
     foreground = "#2E3440"
