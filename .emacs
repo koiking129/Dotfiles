@@ -171,11 +171,21 @@
   :after (evil)
   :hook (org-mode . evil-org-mode))
 
+;; Keybindings
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (local-set-key "\C-cl" 'org-toggle-link-display)))
+
 
 ;; ==================== Beancount-mode ====================
 (use-package beancount
   ;; :quelpa (beancount :fetcher github :repo "beancount/beancount-mode")
   :config (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode)))
+
+;; Keybindings
+(add-hook 'beancount-mode-hook
+          '(lambda ()
+             (local-set-key "\C-\M-\\" 'beancount-tab-dwim)))
 
 
 ;; ==================== Misc. ====================
