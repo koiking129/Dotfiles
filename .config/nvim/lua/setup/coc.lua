@@ -12,6 +12,7 @@ M.config = function ()
   --   'coc-pyright',
   --   'coc-tsserver',
   --   'coc-phpls',
+  --   'coc-diagnostic',
   --   'coc-prettier',
   --   'coc-snippets',
   --   'coc-pairs',  -- Auto pair
