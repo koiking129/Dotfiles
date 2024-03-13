@@ -37,4 +37,7 @@
       "ignoredRootPaths": ["~"],
     },
   },
+
+  // Python
+  "python.formatting.provider": "black",
 }
