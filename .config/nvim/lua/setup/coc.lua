@@ -7,7 +7,6 @@ M.config = function ()
   --   'coc-marketplace',  -- Extensions market
   --   'coc-rust-analyzer',
   --   'coc-clangd',
-  --   'coc-sh',
   --   'coc-lua',
   --   'coc-pyright',
   --   'coc-tsserver',

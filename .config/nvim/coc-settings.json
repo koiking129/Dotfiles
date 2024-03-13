@@ -25,6 +25,16 @@
     "shfmt": {
       "command": "shfmt",
       "args": ["-i", "4", "-bn", "-ci", "-sr"],
-    }
+    },
+  },
+
+  // Language server
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"],
+    },
   },
 }
