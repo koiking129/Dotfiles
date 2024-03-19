@@ -1,0 +1,25 @@
+# vim: ft=cfg
+
+# GUI
+set font "monospace normal 12"
+set guioptions "sv"
+
+# Scrolling
+set scroll-page-aware true  # Stops at page boundaries
+set scroll-full-overlap 0.1  # Overlap 10% when scrolling a full page
+set scroll-step 100
+
+# Smooth scrolling (ignore scroll-step)
+map h feedkeys "<C-Left>"
+map j feedkeys "<C-Down>"
+map k feedkeys "<C-Up>"
+map l feedkeys "<C-Right>"
+
+# Copy
+set selection-clipboard clipboard  # Write the selected text to the clipboard
+set selection-notification false  # Don't display the selection notification
+
+# Info
+set statusbar-basename true
+set statusbar-page-percent true
+set window-title-basename true
