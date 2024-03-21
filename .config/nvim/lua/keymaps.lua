@@ -17,18 +17,6 @@ vim.keymap.set('n', '<a-]>', ':bn <CR>')
 vim.keymap.set("v", "J", ":m '>+1 <CR> gv=gv")
 vim.keymap.set("v", "K", ":m '<-2 <CR> gv=gv")
 
--- Run code
-vim.g.run_cmd = {
-  bash = 'bash',
-  zsh = 'bash',
-  sh = 'bash',
-  python = 'python',
-  javascript = 'node',
-  php = 'php',
-  lua = 'lua'
-}
-vim.keymap.set('n', '<F5>', ':exec "w|!" run_cmd[&ft] "%" <CR>')
-
 -- Run the bash shell selected
 vim.keymap.set('v', '<leader>r', ':w !bash <CR>')
 vim.keymap.set('n', '<leader>yr', ':.w !bash <CR>')

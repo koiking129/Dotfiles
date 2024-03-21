@@ -152,10 +152,14 @@ require('lazy').setup({
     config = require("setup/nvim-dap-ui").config,
   },
 
-  -- Float terminal
+  -- Terminal integration
   {
     "voldikss/vim-floaterm",
+    dependencies = {
+      'voldikss/fzf-floaterm',
+    },
     config = require("setup/vim-floaterm").config,
+    event = "VeryLazy",  -- Load later to ensure the border color
   },
 
   -- Surroundings
