@@ -4,3 +4,8 @@ if [ -z "${DISPLAY}" ] && [ "$(tty)" = "/dev/tty1" ]; then
     exec startx
 fi
 
+
+# Rustup
+if [ -f "$HOME/.cargo/env" ] && ! type cargo > /dev/null ; then
+    . "$HOME/.cargo/env"
+fi
