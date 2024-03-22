@@ -23,3 +23,7 @@ vim.keymap.set('n', '<leader>yr', ':.w !bash <CR>')
 
 -- Line wrap
 vim.keymap.set('n', '<a-z>', ':set wrap! <CR>')
+
+-- Stay in visual mode while indent
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
