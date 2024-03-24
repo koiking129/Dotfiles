@@ -42,23 +42,6 @@ vim.o.shortmess = 'I'
 -- Statusline
 vim.o.laststatus = vim.g.started_by_firenvim and 0 or 3;
 
--- Firenvim
-vim.g.firenvim_config = {
-  globalSettings = { alt = "all" },
-  localSettings = {
-    [".*"] = {
-      cmdline  = "neovim",
-      content  = "text",
-      priority = 0,
-      selector = "textarea",
-      takeover = "never"  -- Triggered manually
-    }
-  }
-}
-
--- Always keep the sign column
-vim.o.signcolumn = "yes"
-
 -- Remove the tilde symbols
 vim.opt.fillchars = { eob = " " }
 
