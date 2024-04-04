@@ -5,6 +5,6 @@ return {
   end,
   ft = "markdown",
   keys = {
-    { "<leader>p", ":MarkdownPreviewToggle <CR>", ft = "markdown" },
+    { "<leader>p", "<CMD>MarkdownPreviewToggle<CR>", ft = "markdown" },
   },
 }

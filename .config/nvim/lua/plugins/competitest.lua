@@ -61,10 +61,10 @@ return {
   'xeluxee/competitest.nvim',
   dependencies = 'MunifTanjim/nui.nvim',
   keys = {
-    { "<leader>cp", ":CompetiTest receive problem <CR>" },
-    { "<leader>cc", ":CompetiTest receive contest <CR>" },
-    { "<leader>cr", ":CompetiTest run <CR>" },
-    { "<leader>cu", ":CompetiTest show_ui <CR>" },
+    { "<leader>cp", "<CMD>CompetiTest receive problem<CR>" },
+    { "<leader>cc", "<CMD>CompetiTest receive contest<CR>" },
+    { "<leader>cr", "<CMD>CompetiTest run<CR>" },
+    { "<leader>cu", "<CMD>CompetiTest show_ui<CR>" },
   },
   opts = {
     -- Template file

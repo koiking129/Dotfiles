@@ -49,7 +49,7 @@ return {
   dependencies = "rcarriga/nvim-dap-ui",  -- To open dap-ui automatically
   keys = {
     {"<leader>dr", dap_run},
-    {"<leader>db", ":DapToggleBreakpoint <CR>"},
+    {"<leader>db", "<CMD>DapToggleBreakpoint<CR>"},
     {"<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Conditional breakpoint: ')) end},
   },
   config = function ()
@@ -91,11 +91,11 @@ return {
     }
     dap.configurations.rust = dap.configurations.cpp
 
-    vim.keymap.set("n", "<leader>dc", ":DapContinue <CR>")
+    vim.keymap.set("n", "<leader>dc", "<CMD>DapContinue<CR>")
     vim.keymap.set("n", "<leader>dC", dap.run_to_cursor)
-    vim.keymap.set("n", "<leader>dn", ":DapStepOver <CR>")
-    vim.keymap.set("n", "<leader>di", ":DapStepInto <CR>")
-    vim.keymap.set("n", "<leader>do", ":DapStepOut <CR>")
-    vim.keymap.set("n", "<leader>dt", ":DapTerminate <CR>")
+    vim.keymap.set("n", "<leader>dn", "<CMD>DapStepOver<CR>")
+    vim.keymap.set("n", "<leader>di", "<CMD>DapStepInto<CR>")
+    vim.keymap.set("n", "<leader>do", "<CMD>DapStepOut<CR>")
+    vim.keymap.set("n", "<leader>dt", "<CMD>DapTerminate<CR>")
   end
 }

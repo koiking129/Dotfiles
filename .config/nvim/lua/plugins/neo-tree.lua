@@ -7,9 +7,9 @@ return {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<leader>t", ":Neotree position=left toggle <CR>" },
-    { "<A-[>", "<C-w><C-w>", ft = "neo-tree"},
-    { "<A-]>", "<C-w><C-w>", ft = "neo-tree"},
+    { "<leader>t", "<CMD>Neotree position=left toggle<CR>" },
+    { "<A-[>", "<CMD>wincmd w<CR>", ft = "neo-tree"},
+    { "<A-]>", "<CMD>wincmd w<CR>", ft = "neo-tree"},
   },
   opts = {
     close_if_last_window = true,

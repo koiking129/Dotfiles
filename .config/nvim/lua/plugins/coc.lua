@@ -18,7 +18,7 @@ local function focus_fw()
     vim.api.nvim_eval('coc#float#jump()')
     -- Bind keys for closing the focused float window
     local _opts = { buffer = true, silent = true }
-    vim.keymap.set("n", "<ESC>", ":call coc#float#close_all() <CR>", _opts)
+    vim.keymap.set("n", "<ESC>", "<CMD>call coc#float#close_all()<CR>", _opts)
   end
 end
 
@@ -73,6 +73,6 @@ return {
     vim.keymap.set("n", "<leader>lr", "<Plug>(coc-rename)")
 
     -- Find symbol of current document
-    vim.keymap.set("n", "<leader>lo", ":CocList outline<cr>")
+    vim.keymap.set("n", "<leader>lo", "<CMD>CocList outline<CR>")
   end
 }
