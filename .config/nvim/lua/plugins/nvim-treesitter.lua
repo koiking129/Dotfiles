@@ -28,6 +28,7 @@ return {
       'markdown_inline',
       'org',
       'sxhkdrc',
+      'zathurarc',
       'beancount',
     },
     highlight = {
