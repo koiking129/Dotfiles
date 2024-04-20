@@ -32,7 +32,7 @@ return {
     --   'coc-marketplace',  -- Extensions market
     --   'coc-rust-analyzer',
     --   'coc-clangd',
-    --   'coc-lua',
+    --   'coc-sumneko-lua',
     --   'coc-pyright',
     --   'coc-tsserver',
     --   'coc-phpls',
