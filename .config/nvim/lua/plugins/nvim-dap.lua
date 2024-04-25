@@ -47,10 +47,13 @@ end
 return {
   "mfussenegger/nvim-dap",
   dependencies = "rcarriga/nvim-dap-ui",  -- To open dap-ui automatically
+  init = function ()
+    require("which-key").add({ "<leader>d", group = "Debug" })
+  end,
   keys = {
-    {"<leader>dr", dap_run},
-    {"<leader>db", "<CMD>DapToggleBreakpoint<CR>"},
-    {"<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Conditional breakpoint: ')) end},
+    {"<leader>dr", dap_run, desc = "Run"},
+    {"<leader>db", "<CMD>DapToggleBreakpoint<CR>", desc = "Breakpoint"},
+    {"<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Conditional breakpoint: ')) end, desc = "Conditional breakpoint"},
   },
   config = function ()
     local dap = require("dap")
@@ -91,11 +94,11 @@ return {
     }
     dap.configurations.rust = dap.configurations.cpp
 
-    vim.keymap.set("n", "<leader>dc", "<CMD>DapContinue<CR>")
-    vim.keymap.set("n", "<leader>dC", dap.run_to_cursor)
-    vim.keymap.set("n", "<leader>dn", "<CMD>DapStepOver<CR>")
-    vim.keymap.set("n", "<leader>di", "<CMD>DapStepInto<CR>")
-    vim.keymap.set("n", "<leader>do", "<CMD>DapStepOut<CR>")
-    vim.keymap.set("n", "<leader>dt", "<CMD>DapTerminate<CR>")
+    vim.keymap.set("n", "<leader>dc", "<CMD>DapContinue<CR>", {desc = "Continue"})
+    vim.keymap.set("n", "<leader>dC", dap.run_to_cursor, {desc = "Run to cursor"})
+    vim.keymap.set("n", "<leader>dn", "<CMD>DapStepOver<CR>", {desc = "Step over"})
+    vim.keymap.set("n", "<leader>di", "<CMD>DapStepInto<CR>", {desc = "Step into"})
+    vim.keymap.set("n", "<leader>do", "<CMD>DapStepOut<CR>", {desc = "Step out"})
+    vim.keymap.set("n", "<leader>dt", "<CMD>DapTerminate<CR>", {desc = "Terminate"})
   end
 }

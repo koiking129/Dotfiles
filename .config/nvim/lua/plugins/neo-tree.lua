@@ -16,7 +16,7 @@ return {
     end})
   end,
   keys = {
-    { "<leader>t", "<CMD>Neotree position=left toggle<CR>" },
+    { "<leader>t", "<CMD>Neotree position=left toggle<CR>", desc = "Neotree" },
     { "<A-[>", "<CMD>wincmd w<CR>", ft = "neo-tree"},
     { "<A-]>", "<CMD>wincmd w<CR>", ft = "neo-tree"},
   },

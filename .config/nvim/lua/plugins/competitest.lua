@@ -60,11 +60,13 @@ end
 return {
   'xeluxee/competitest.nvim',
   dependencies = 'MunifTanjim/nui.nvim',
+  init = function ()
+    require("which-key").add({ "<leader>c", group = "CompetiTest" })
+  end,
   keys = {
-    { "<leader>cp", "<CMD>CompetiTest receive problem<CR>" },
-    { "<leader>cc", "<CMD>CompetiTest receive contest<CR>" },
-    { "<leader>cr", "<CMD>CompetiTest run<CR>" },
-    { "<leader>cu", "<CMD>CompetiTest show_ui<CR>" },
+    { "<leader>cp", "<CMD>CompetiTest receive problem<CR>", desc = "Receive problem" },
+    { "<leader>cc", "<CMD>CompetiTest receive contest<CR>", desc = "Receive contest" },
+    { "<leader>cr", "<CMD>CompetiTest run<CR>" , desc = "Run"},
   },
   opts = {
     -- Template file
@@ -86,4 +88,9 @@ return {
     testcases_input_file_format = "input$(TCNUM).txt",
     testcases_output_file_format = "output$(TCNUM).txt",
   },
+  config = function (_, opts)
+    require("competitest").setup(opts)
+
+    vim.keymap.set("n", "<leader>cu", "<CMD>CompetiTest show_ui<CR>", { desc = "Show UI" })
+  end
 }

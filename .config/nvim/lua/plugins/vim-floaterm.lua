@@ -53,14 +53,17 @@ end
 return {
   "voldikss/vim-floaterm",
   dependencies = 'voldikss/fzf-floaterm',
+  init = function ()
+    require("which-key").add({ "<leader>q", group = "Terminal" })
+  end,
   keys = {
-    '<leader>ql',
-    '<leader>qq',
-    '<leader>qt',
-    '<leader>qr',
-    '<leader>qf',
-    '<leader>qg',
-    '<A-q>',
+    { "<leader>ql", desc = "List floaterm buffers" },
+    { "<leader>qq", desc = "Float terminal" },
+    { "<leader>qt", desc = "Bottom terminal" },
+    { "<leader>qr", desc = "Run code" },
+    { "<leader>qf", desc = "Ranger" },
+    { "<leader>qg", desc = "Lazygit" },
+    "<A-q>",
   },
   config = function ()
     -- The relative size of floaterm
@@ -77,7 +80,6 @@ return {
     vim.cmd("hi FloatermBorder ctermfg=none ctermbg=none")
 
     -- Keymaps
-    require("which-key").register({ ["<leader>q"] = { name = "Terminal" } })  -- Which-key label
     vim.keymap.set('n', '<leader>ql', '<CMD>Floaterms<CR>', {desc = 'List floaterm buffers'})
     vim.keymap.set('n', '<leader>qq', '<CMD>FloatermNew --name=FTERM<CR>', {desc = 'Float terminal'})
     vim.keymap.set('n', '<leader>qt', '<CMD>FloatermNew --wintype=split --position=bottom --height=0.4<CR><CMD>set nonu norun<CR>', {desc = 'Bottom terminal'})

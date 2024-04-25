@@ -26,6 +26,12 @@ end
 return {
   'neoclide/coc.nvim',
   branch = 'release',
+  init = function ()
+    require("which-key").add({
+      { "<leader>l", desc = "LSP" },
+      { "<leader>g", desc = "Code jump" },
+    })
+  end,
   config = function()
     -- Extensions installed
     -- vim.g.coc_global_extensions = {
@@ -53,26 +59,26 @@ return {
     -- Formatting code
     -- TODO: vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument')
     vim.api.nvim_create_user_command("Prettier", "CocCommand prettier.forceFormatDocument", {nargs = 0})
-    vim.keymap.set('x', '<leader>lf', '<Plug>(coc-format-selected)')
-    vim.keymap.set('n', '<leader>lf', '<Plug>(coc-format-selected)')
-    vim.keymap.set('n', '<leader>lff', '<Plug>(coc-format)')
+    vim.keymap.set('x', '<leader>lf', '<Plug>(coc-format-selected)', { desc = "Format" })
+    vim.keymap.set('n', '<leader>lf', '<Plug>(coc-format-selected)', { desc = "Format" })
+    vim.keymap.set('n', '<leader>lff', '<Plug>(coc-format)', { desc = "Format file" })
 
     -- GoTo code navigation
-    vim.keymap.set("n", "<leader>gd", "<Plug>(coc-definition)")
-    vim.keymap.set("n", "<leader>gy", "<Plug>(coc-type-definition)")
-    vim.keymap.set("n", "<leader>gi", "<Plug>(coc-implementation)")
-    vim.keymap.set("n", "<leader>gr", "<Plug>(coc-references)")
+    vim.keymap.set("n", "<leader>gd", "<Plug>(coc-definition)", { desc = "Definition" })
+    vim.keymap.set("n", "<leader>gy", "<Plug>(coc-type-definition)", { desc = "Type definition" })
+    vim.keymap.set("n", "<leader>gi", "<Plug>(coc-implementation)", { desc = "Implementation" })
+    vim.keymap.set("n", "<leader>gr", "<Plug>(coc-references)", { desc = "References" })
 
     -- Show documentation in the float window
-    vim.keymap.set("n", "<leader>lk", show_docs)
+    vim.keymap.set("n", "<leader>lk", show_docs, { desc = "Show docs" })
 
     -- Focus the float window
     vim.keymap.set("n", "<C-w>f", focus_fw)
 
     -- Symbol renaming
-    vim.keymap.set("n", "<leader>lr", "<Plug>(coc-rename)")
+    vim.keymap.set("n", "<leader>lr", "<Plug>(coc-rename)", { desc = "Rename" })
 
     -- Find symbol of current document
-    vim.keymap.set("n", "<leader>lo", "<CMD>CocList outline<CR>")
+    vim.keymap.set("n", "<leader>lo", "<CMD>CocList outline<CR>", { desc = "Outline" })
   end
 }

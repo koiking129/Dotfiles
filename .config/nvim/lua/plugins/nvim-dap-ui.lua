@@ -4,7 +4,7 @@ return {
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
   },
-  keys = { { "<leader>du", function() require('dapui').toggle({ reset = true }) end } },
+  keys = { { "<leader>du", function() require('dapui').toggle({ reset = true }) end, desc = "Toggle UI" } },
   opts = {
     -- Layouts
     layouts = {
