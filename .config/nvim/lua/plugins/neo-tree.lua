@@ -6,11 +6,21 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
+  init = function ()
+    -- Lazy load neo-tree while keeping it hijack the netrw
+    vim.api.nvim_create_autocmd({"VimEnter"}, {callback = function (args)
+      -- If the buffer is a directory
+      if vim.fn.isdirectory(args.file) == 1 then
+        require("neo-tree") -- Load neo-tree
+      end
+    end})
+  end,
   keys = {
     { "<leader>t", "<CMD>Neotree position=left toggle<CR>" },
     { "<A-[>", "<CMD>wincmd w<CR>", ft = "neo-tree"},
     { "<A-]>", "<CMD>wincmd w<CR>", ft = "neo-tree"},
   },
+  cmd = "Neotree",
   opts = {
     close_if_last_window = true,
     window = {
