@@ -1,8 +1,5 @@
 vim.g.mapleader = ' '
 
--- Remove highlights
-vim.keymap.set('n', '<leader>nh', '<CMD>noh<CR>')
-
 -- Windows navigation
 vim.keymap.set('n', '<A-h>', '<CMD>wincmd h<CR>')
 vim.keymap.set('n', '<A-j>', '<CMD>wincmd j<CR>')
