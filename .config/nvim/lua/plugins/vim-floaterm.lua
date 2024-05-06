@@ -35,6 +35,7 @@ local code_runner = function ()
     python = 'python %',
     javascript = 'node %',
     rust = 'cargo run',
+    cs = 'csc %; mono %:r.exe',
   }
 
   -- The filetype of the current buffer
