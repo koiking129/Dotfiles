@@ -16,6 +16,11 @@ return {
       default = {
         augend.integer.alias.decimal_int, -- decimal number (-2, -1, 0, 1, 2, ...)
         augend.constant.alias.bool,       -- Toggle boolean value (true <-> false)
+        augend.constant.new{
+          elements = {"yes", "no"}, -- yes <-> no
+          word = true,
+          cyclic = true,
+        },
       },
     })
   end,
