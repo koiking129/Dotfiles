@@ -186,3 +186,7 @@ fi
 
 # Keybindings
 bindkey '^q' push-line-or-edit  # Make multiline command editable
+
+
+# Install the shell widget of navi
+eval "$(navi widget zsh)"
