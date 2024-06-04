@@ -80,5 +80,8 @@ return {
 
     -- Find symbol of current document
     vim.keymap.set("n", "<leader>lo", "<CMD>CocList outline<CR>", { desc = "Outline" })
+
+    -- Diagnostic
+    vim.keymap.set("n", "<leader>ld", "<CMD>CocDiagnostic<CR>", { desc = "Diagnostic" })
   end
 }
