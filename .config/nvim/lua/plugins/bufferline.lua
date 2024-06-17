@@ -13,6 +13,18 @@ return {
           separator = true,
         },
       },
+
+      -- Show the diagnostics info
+      diagnostics = "coc",
+      diagnostics_indicator = function(_, _, diagnostics_dict, _)
+        local s = " "
+        for e, n in pairs(diagnostics_dict) do
+          local sym = e == "error" and " "
+              or (e == "warning" and " " or "")
+          s = s .. n .. sym
+        end
+        return s
+      end,
     },
   },
   config = function(_, opts)
