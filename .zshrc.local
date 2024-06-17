@@ -21,6 +21,7 @@ alias em="emacs -nw"
 alias bt="bluetuith"
 alias ncm="ncmpcpp"
 alias tt="taskwarrior-tui"
+alias lg="lazygit"
 alias lzd="lazydocker"
 
 type batcat > /dev/null && alias bat="batcat"
@@ -43,7 +44,7 @@ done
 # PROS: Show the git info in the prompt; Get rid of the annoying options
 # CONS: Can't run `git clone`
 function precmd {  # Executed before each prompt
-    if [[ ":$DOT_DIRS:" =~ ":$PWD:" ]]; then
+    if [[ ":$DOT_DIRS:" =~ ":$PWD:" && $DOTENV ]]; then
         export GIT_DIR="$DOT_REPO"
         export GIT_WORK_TREE="$HOME"
     else
@@ -52,21 +53,8 @@ function precmd {  # Executed before each prompt
     fi
 }
 
-function git {
-    # Remove the $GIT_DIR and $GIT_WORK_TREE before executing `git clone`
-    if [ "$1" = "clone" ] ; then
-        # env -u GIT_DIR -u GIT_WORK_TREE -- command git "$@"  # TESTING:
-        unset GIT_DIR
-        unset GIT_WORK_TREE
-    fi
-    command git "$@"
-}
-
-# Remove the $GIT_DIR and $GIT_WORK_TREE that conflict with the `git clone`
-alias yay="env -u GIT_DIR -u GIT_WORK_TREE yay"
-
-# Fallback to the vanilla lazygit if GIT_DIR is unset
-alias lg='lazygit'
+# Toggle the git environment for Dotfiles.git
+alias de='[ $DOTENV ] && unset DOTENV || DOTENV=1'
 
 # git-fuzzy
 export PATH="$HOME/Projects/git-fuzzy/bin:$PATH"
