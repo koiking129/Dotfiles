@@ -33,6 +33,14 @@ vim.o.smartcase = true
 -- Enable wrap
 vim.o.wrap = true
 
+-- Manual
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "man",
+  callback = function ()
+    vim.o.signcolumn = "no"
+  end,
+})
+
 -- Color
 vim.o.termguicolors = true
 
