@@ -10,6 +10,7 @@ return {
       'lua',
       'php',
       'python',
+      'gdscript', -- 'godot_resource', 'gdshader',
       'bash',
       'vim',
       'vimdoc',
