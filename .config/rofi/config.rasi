@@ -9,6 +9,9 @@ configuration {
 
   // HiDPI support
   dpi: ${ROFI_DPI};
+
+  // Key bindings
+  kb-accept-entry: "Return,KP_Enter";
 }
 
 @theme "theme.rasi"
