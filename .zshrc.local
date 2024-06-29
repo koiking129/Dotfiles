@@ -23,9 +23,11 @@ alias ncm="ncmpcpp"
 alias tt="taskwarrior-tui"
 alias lg="lazygit"
 alias lzd="lazydocker"
-
 type batcat > /dev/null && alias bat="batcat"
 type bat > /dev/null && alias cat="bat"
+
+# Search and open bookmarks from buku with fzf
+alias b='for URL in $(buku -p -f4 | fzf -m --tac --preview "buku --nostdin -p {1}" --preview-window "down,7,wrap" --bind "ctrl-t:execute-silent(xdg-open {2})" --bind "ctrl-e:execute(buku -w {1})" | cut -f2); do xdg-open $URL; done'
 
 # Path to Dotfiles.git
 DOT_REPO="$HOME/Projects/Dotfiles.git"
