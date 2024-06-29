@@ -1,4 +1,14 @@
+# vim: ft=conf
+
 user_interface = alternative
 
 follow_now_playing_lyrics = yes
 
+# Sort mode for the browser (2)
+browser_sort_mode = name
+
+display_bitrate = yes
+
+clock_display_seconds = yes
+
+external_editor = nvim
