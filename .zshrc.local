@@ -184,3 +184,9 @@ bindkey '^q' push-line-or-edit  # Make multiline command editable
 
 # Install the shell widget of navi
 eval "$(navi widget zsh)"
+
+
+# Start tmux on every shell login
+if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
+    tmux new -A -s "${USER}"
+fi
