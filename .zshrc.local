@@ -2,6 +2,10 @@
 export EDITOR="nvim"
 
 
+# Make "less" jump point to center of search result rather than top
+export LESS="-j.5"
+
+
 # Specify the pager used in man
 export MANPAGER="nvim +Man!"
 
