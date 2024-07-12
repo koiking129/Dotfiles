@@ -51,7 +51,7 @@ handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
         ## Archive
         a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
-        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z)
+        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xz|Z)
             [ "$(du -s "${FILE_PATH}" | awk '{print $1}')" -gt 500000 ] && exit 1
             atool --list -- "${FILE_PATH}" && exit 5
             bsdtar --list --file "${FILE_PATH}" && exit 5
@@ -60,7 +60,7 @@ handle_extension() {
             ## Avoid password prompt by providing empty password
             unrar lt -p- -- "${FILE_PATH}" && exit 5
             exit 1;;
-        7z|zip)
+        7z|zip|xpi|vsix)
             ## Avoid password prompt by providing empty password
             7z l -p -- "${FILE_PATH}" && exit 5
             exit 1;;
