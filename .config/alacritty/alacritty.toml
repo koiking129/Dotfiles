@@ -1,0 +1,12 @@
+[colors.search]
+matches = { foreground = "#000000", background = "#ffffff" }
+focused_match = { foreground = "#ffffff", background = "#f99417" }
+
+[font]
+normal = { family = "JetBrainsMono NF", style = "Regular" }
+size = 14.0
+
+[window]
+opacity = 0.95
+dimensions = { columns = 100, lines = 30 }
+padding = { x = 15, y = 10 }
