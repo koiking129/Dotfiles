@@ -1,12 +1,13 @@
 // vim: ft=jsonc
 
 {
-  // Declare the global `vim` for the Neovim config in lua
+  "Lua.runtime.version": "LuaJIT",  // lua version
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua/",
     "/usr/share/nvim/runtime/lua/vim/",
     "/usr/share/nvim/runtime/lua/vim/lsp/",
   ],
+  // declare the global `vim` for the Neovim config files
   "Lua.diagnostics.globals": ["vim"],
 
   // Show diagnostics using the virtual text
