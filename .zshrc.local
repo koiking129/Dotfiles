@@ -190,6 +190,10 @@ bindkey '^q' push-line-or-edit  # Make multiline command editable
 eval "$(navi widget zsh)"
 
 
+# Install the shell plugin of atuin
+eval "$(atuin init zsh --disable-up-arrow)"
+
+
 # Start tmux on every shell login
 if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
     tmux new -A -s "${USER}"
