@@ -12,6 +12,7 @@ return {
       'python',
       'gdscript', -- 'godot_resource', 'gdshader',
       'bash',
+      'powershell',
       'vim',
       'vimdoc',
       'html',
