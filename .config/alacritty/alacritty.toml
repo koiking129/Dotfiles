@@ -1,6 +1,5 @@
-[colors.search]
-matches = { foreground = "#000000", background = "#ffffff" }
-focused_match = { foreground = "#ffffff", background = "#f99417" }
+# Color scheme
+import = ["~/.config/alacritty/dracula.toml"]
 
 [font]
 normal = { family = "JetBrainsMono NF", style = "Regular" }
