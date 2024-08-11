@@ -45,5 +45,5 @@
   },
 
   // Python
-  "python.formatting.provider": "black",
+  "ruff.nativeServer": true
 }

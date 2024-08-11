@@ -39,7 +39,7 @@ return {
     --   'coc-rust-analyzer',
     --   'coc-clangd',
     --   'coc-sumneko-lua',
-    --   'coc-pyright',
+    --   '@yaegassy/coc-ruff',
     --   'coc-tsserver',
     --   'coc-phpls',
     --   'coc-diagnostic',
