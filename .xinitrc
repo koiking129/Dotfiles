@@ -40,9 +40,6 @@ nm-applet &
 # Bluetooth
 blueman-applet &
 
-# Proxy
-cfw &
-
 # Prevent screen from blanking after inactivity
 xset s off
 xset dpms 0 0 0
@@ -55,9 +52,6 @@ xautolock \
     -time 20 \
     -locker "grep RUNNING /proc/asound/card*/pcm*/sub*/status > /dev/null || $HOME/.local/bin/betterls" \
     -killtime 60 -killer "systemctl suspend" &
-
-# Email
-birdtray &
 
 # Hotkey daemon
 sxhkd &
