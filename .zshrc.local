@@ -11,6 +11,10 @@ export LESS="-i -j.5"
 export MANPAGER="nvim +Man!"
 
 
+# Don't automatically update the tldr cache
+export TLDR_CACHE_MAX_AGE=876000  # 24 x 365 x 100 hours == 100 years
+
+
 # Aliases
 alias aria2="(aria2c --enable-rpc --rpc-listen-all >> /tmp/aria2.log 2>&1 &)"
 alias ra="source ranger ranger"  # Change to ranger’s directory on quit
