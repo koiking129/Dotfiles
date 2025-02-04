@@ -24,3 +24,12 @@ vim.keymap.set('n', '<a-z>', '<CMD>set wrap!<CR>')
 -- Stay in visual mode while indent
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+-- Exit qf via `ESC` or `q`
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "qf" },
+  callback = function ()
+    vim.keymap.set("n", "<ESC>", "<CMD>q<CR>", { buffer = true })
+    vim.keymap.set("n", "q", "<CMD>q<CR>", { buffer = true })
+  end,
+})
