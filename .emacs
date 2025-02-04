@@ -168,7 +168,7 @@
 
 ;; Supplemental evil-mode keybindings for org-mode
 (use-package evil-org
-  :after (evil)
+  :after org
   :hook (org-mode . evil-org-mode))
 
 ;; Keybindings
