@@ -185,7 +185,7 @@
 ;; Keybindings
 (add-hook 'beancount-mode-hook
           '(lambda ()
-             (local-set-key "\C-\M-\\" 'beancount-tab-dwim)))
+             (local-set-key (kbd "<tab>") 'beancount-tab-dwim)))
 
 
 ;; ==================== Misc. ====================
