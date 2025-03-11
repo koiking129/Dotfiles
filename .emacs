@@ -14,7 +14,7 @@
  'default nil
  :font "JetBrains Mono-14")
 (dolist (charset '(kana han cjk-misc bopomofo))
-  (set-fontset-font t charset "Noto Sans CJK SC"))
+  (set-fontset-font t charset "Maple Mono NF CN"))
 
 ;; Show line number
 (global-display-line-numbers-mode t)
