@@ -29,7 +29,6 @@ return {
   init = function ()
     require("which-key").add({
       { "<leader>l", desc = "LSP" },
-      { "<leader>g", desc = "Code jump" },
     })
   end,
   config = function()
@@ -64,10 +63,10 @@ return {
     vim.keymap.set('n', '<leader>lff', '<Plug>(coc-format)', { desc = "Format file" })
 
     -- GoTo code navigation
-    vim.keymap.set("n", "<leader>gd", "<Plug>(coc-definition)", { desc = "Definition" })
-    vim.keymap.set("n", "<leader>gy", "<Plug>(coc-type-definition)", { desc = "Type definition" })
-    vim.keymap.set("n", "<leader>gi", "<Plug>(coc-implementation)", { desc = "Implementation" })
-    vim.keymap.set("n", "<leader>gr", "<Plug>(coc-references)", { desc = "References" })
+    vim.keymap.set("n", "<leader>lgd", "<Plug>(coc-definition)", { desc = "Definition" })
+    vim.keymap.set("n", "<leader>lgy", "<Plug>(coc-type-definition)", { desc = "Type definition" })
+    vim.keymap.set("n", "<leader>lgi", "<Plug>(coc-implementation)", { desc = "Implementation" })
+    vim.keymap.set("n", "<leader>lgr", "<Plug>(coc-references)", { desc = "References" })
 
     -- Show documentation in the float window
     vim.keymap.set("n", "<leader>lk", show_docs, { desc = "Show docs" })
@@ -83,5 +82,8 @@ return {
 
     -- Diagnostic
     vim.keymap.set("n", "<leader>ld", "<CMD>CocDiagnostic<CR>", { desc = "Diagnostic" })
+
+    -- Inlay hint
+    vim.keymap.set("n", "<leader>li", "<CMD>CocCommand document.toggleInlayHint<CR>", { desc = "Toggle inlay hint" })
   end
 }
