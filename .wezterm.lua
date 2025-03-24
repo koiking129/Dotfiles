@@ -33,6 +33,18 @@ config.keys = {
   { key = '}', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(1) },
 }
 
+-- Window size and positon
+wezterm.on('gui-startup', function(cmd)
+  -- https://wezterm.org/config/lua/wezterm.gui/screens.html
+  local screen = wezterm.gui.screens().main
+  local ratio = 0.8
+  local width, height = screen.width * ratio, screen.height * ratio
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {
+    position = { x = (screen.width - width) / 2, y = (screen.height - height) / 2 },
+  })
+  window:gui_window():set_inner_size(width, height)
+end)
+
 -- Windows specific
 if wezterm.target_triple:find('windows') then
   -- Remove the title bar
@@ -43,17 +55,6 @@ if wezterm.target_triple:find('windows') then
 
   -- Disable Alt-Space opening menu on Windows
   table.insert(config.keys, { key = 'Space', mods = 'ALT', action = wezterm.action.SendKey { key = 'Space', mods = 'ALT' } })
-
-  -- Center the window on startup
-  wezterm.on('gui-startup', function(cmd)
-    local screen = wezterm.gui.screens().main
-    local ratio = 0.8
-    local width, height = screen.width * ratio, screen.height * ratio
-    local tab, pane, window = wezterm.mux.spawn_window(cmd or {
-      position = { x = (screen.width - width) / 2, y = (screen.height - height) / 2 },
-    })
-    window:gui_window():set_inner_size(width, height)
-  end)
 
   -- Fix the display issue (recurrent: minimize and restore the window)
   config.window_padding = { left = 1, right = 1, top = 1, bottom = 1 }
