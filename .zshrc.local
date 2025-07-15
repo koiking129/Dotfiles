@@ -191,12 +191,12 @@ fi
 bindkey '^q' push-line-or-edit  # Make multiline command editable
 
 
-# Install the shell widget of navi
-eval "$(navi widget zsh)"
+# Setup navi
+type navi > /dev/null && eval "$(navi widget zsh)"
 
 
-# Install the shell plugin of atuin
-eval "$(atuin init zsh --disable-up-arrow)"
+# Setup atuin
+type atuin > /dev/null && eval "$(atuin init zsh --disable-up-arrow)"
 
 
 # Start tmux on every shell login
