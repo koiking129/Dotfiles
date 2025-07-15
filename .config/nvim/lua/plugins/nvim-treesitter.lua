@@ -28,7 +28,6 @@ return {
       'ron',
       'markdown',
       'markdown_inline',
-      'org',
       'sxhkdrc',
       'zathurarc',
       'beancount',
