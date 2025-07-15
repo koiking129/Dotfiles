@@ -158,6 +158,12 @@ if [ -z "$ZSH" ]; then
 fi
 
 
+# Enable tmux-popup for fzf-tab
+if [ -d "$ZSH/custom/plugins/fzf-tab" ]; then
+    zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+fi
+
+
 # Fix the weird pasting highlight of fast-syntax-highlighting
 zle_highlight=('paste:none')
 
