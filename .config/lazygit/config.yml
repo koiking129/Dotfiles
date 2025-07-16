@@ -9,16 +9,3 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
-
-customCommands:
-  # File history
-  - key: t
-    command: tig {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
-    context: commitFiles
-    description: tig file (history of commits affecting file)
-    subprocess: yes
-  - key: t
-    command: tig -- {{.SelectedFile.Name}}
-    context: files
-    description: tig file (history of commits affecting file)
-    subprocess: yes
